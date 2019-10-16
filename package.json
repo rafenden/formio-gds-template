@@ -1,0 +1,20 @@
+{
+  "name": "formio-gds-template",
+  "version": "1.0.0",
+  "description": "Gov UK design system formio templates",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DigitalPatterns/formio-gds-template.git"
+  },
+  "keywords": [
+    "formio"
+  ],
+  "author": "Amin Mohammed-Coleman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DigitalPatterns/formio-gds-template/issues"
+  },
+  "homepage": "https://github.com/DigitalPatterns/formio-gds-template#readme"
+}
