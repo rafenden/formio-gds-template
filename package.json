@@ -1,10 +1,13 @@
 {
-  "name": "@digtialpatterns/formio-gds-template",
+  "name": "@digitalpatterns/formio-gds-template",
   "version": "1.0.0",
   "description": "Gov UK design system formio templates",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
   },
-  "publishConfig":{"registry":"https://api.bintray.com/npm/digitalpatterns/npm"},
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DigitalPatterns/formio-gds-template.git"
