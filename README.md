@@ -5,7 +5,30 @@ This project provides the templates required to implement the GDS Design System 
 
 ## Set up and configuration
 
+### Prerequisites
+
+
 ### Installation
+```bash
+   npm install @digitalpatterns/formio-gds-template
+```
 
 
-### Usage
+## Usage
+
+Using vanilla formio
+```javascript
+import gds from '@digitalpatterns/formio-gds-template';
+import Formio from 'formiojs';
+
+Formio.use(gds);
+```
+
+Using react-formio
+
+```javascript
+import {Formio} from "react-formio";
+import gds from '@digitalpatterns/formio-gds-template';
+
+Formio.use(gds);
+```
