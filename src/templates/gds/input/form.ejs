@@ -1,0 +1,22 @@
+<div class="govuk-form-group">
+    {% if (ctx.component.prefix) { %}
+    <label class="govuk-label" ref="prefix" for="{{ctx.input.id}}">{{ctx.component.prefix}}</label>
+    {% } %}
+    <{{ctx.input.type}}
+    ref="{{ctx.input.ref ? ctx.input.ref : 'input'}}"
+    class="{{ctx.input.type === 'textarea' ? 'govuk-textarea' : 'govuk-input'}}"
+    {% for (var attr in ctx.input.attr) { %}
+    {{attr}}="{{ctx.input.attr[attr]}}"
+    {% } %}
+    >{{ctx.input.content}}
+</{{ctx.input.type}}>
+{% if (ctx.component.showCharCount) { %}
+<span class="govuk-hint govuk-character-count__message" ref="charcount"></span>
+{% } %}
+{% if (ctx.component.showWordCount) { %}
+<span class="govuk-hint govuk-character-count__message" ref="wordcount"></span>
+{% } %}
+{% if (ctx.component.suffix) { %}
+<div class="govuk-label" ref="suffix">{{ctx.component.suffix}}</div>
+{% } %}
+</div>

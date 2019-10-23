@@ -1,3 +1,1 @@
-export default (iconset, name, spinning) => {
-
-};
+export default (iconset, name, spinning) => {};
