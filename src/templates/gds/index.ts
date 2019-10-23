@@ -10,6 +10,7 @@ import select from './select';
 import tab from './tab';
 import table from './table';
 import warning from './warning';
+import wizard from './wizard';
 
 export default {
     button,
@@ -24,4 +25,5 @@ export default {
     table,
     tab,
     warning,
+    wizard,
 };

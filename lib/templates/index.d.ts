@@ -37,6 +37,9 @@ declare const _default: {
         warning: {
             form: string;
         };
+        wizard: {
+            form: string;
+        };
     };
 };
 export default _default;

@@ -8,4 +8,9 @@
             </li>
         {% }) %}
     </ul>
+    {% ctx.component.components.forEach(function(tab, index) { %}
+    <section class="govuk-tabs__panel {{ctx.currentTab !== index ? 'govuk-tabs__panel--hidden' : ''}}" id="{{tab.key}}">
+        {{ctx.tabComponents[index]}}
+    </section>
+    {% }) %}
 </div>
