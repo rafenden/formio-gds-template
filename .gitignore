@@ -28,5 +28,6 @@ node_modules
 integration/cypress/screenshots
 integration/cypress/videos
 dist
+lib/
 
 
