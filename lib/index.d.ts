@@ -30,6 +30,9 @@ declare const _default: {
             select: {
                 form: string;
             };
+            table: {
+                form: string;
+            };
         };
     };
 };

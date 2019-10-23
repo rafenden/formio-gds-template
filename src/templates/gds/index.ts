@@ -7,6 +7,7 @@ import fieldset from './fieldset';
 import input from './input';
 import radio from './radio';
 import select from './select';
+import table from './table';
 
 export default {
     button,
@@ -18,4 +19,5 @@ export default {
     fieldset,
     radio,
     select,
+    table,
 };

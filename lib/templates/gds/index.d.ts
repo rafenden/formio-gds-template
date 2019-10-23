@@ -27,5 +27,8 @@ declare const _default: {
     select: {
         form: string;
     };
+    table: {
+        form: string;
+    };
 };
 export default _default;
