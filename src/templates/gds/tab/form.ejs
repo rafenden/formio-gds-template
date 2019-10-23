@@ -1,0 +1,11 @@
+<div class="govuk-tabs" data-module="govuk-tabs">
+    <ul class="govuk-tabs__list">
+        {% ctx.component.components.forEach(function(tab, index) { %}
+            <li class="govuk-tabs__list-item{{ ctx.currentTab === index ? ' govuk-tabs__list-item--selected' : ''}}" ref="{{ctx.tabLikey}}">
+                <a class="govuk-tabs__tab" href="#{{tab.key}}" ref="{{ctx.tabLinkKey}}">
+                    {{ctx.t(tab.label)}}
+                </a>
+            </li>
+        {% }) %}
+    </ul>
+</div>

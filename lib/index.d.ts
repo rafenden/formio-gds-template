@@ -33,6 +33,12 @@ declare const _default: {
             table: {
                 form: string;
             };
+            tab: {
+                form: string;
+            };
+            warning: {
+                form: string;
+            };
         };
     };
 };
