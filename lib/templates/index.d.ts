@@ -3,7 +3,13 @@ declare const _default: {
         button: {
             form: string;
         };
+        checkbox: {
+            form: string;
+        };
         component: {
+            form: string;
+        };
+        day: {
             form: string;
         };
         input: {
@@ -12,9 +18,15 @@ declare const _default: {
         field: {
             form: string;
         };
+        fieldset: {
+            form: string;
+        };
         radio: {
             form: string;
             html: string;
+        };
+        select: {
+            form: string;
         };
     };
 };
