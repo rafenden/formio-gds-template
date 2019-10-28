@@ -2,6 +2,13 @@ declare const _default: {
     framework: string;
     templates: {
         gds: {
+            transform(type: any, text: any): any;
+            cssClasses: {
+                'has-error': string;
+                'formio-tab-link-container-active': string;
+                'is-invalid': string;
+                'formio-error-wrapper': string;
+            };
             button: {
                 form: string;
             };
@@ -9,6 +16,9 @@ declare const _default: {
                 form: string;
             };
             component: {
+                form: string;
+            };
+            container: {
                 form: string;
             };
             day: {
@@ -23,9 +33,14 @@ declare const _default: {
             fieldset: {
                 form: string;
             };
+            label: {
+                form: string;
+            };
+            message: {
+                form: string;
+            };
             radio: {
                 form: string;
-                html: string;
             };
             select: {
                 form: string;

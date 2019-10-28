@@ -1,7 +1,5 @@
 {% if (!ctx.label.hidden && ctx.label.labelPosition !== 'bottom') { %}
-<label class="{{ctx.label.className}} govuk-label">
-    {{ ctx.render('label', ctx) }}
-</label>
+{{ ctx.render('label', ctx) }}
 {% } %}
 {% if (ctx.component.description) { %}
 <div class="govuk-hint">{{ctx.t(ctx.component.description)}}</div>
@@ -20,7 +18,5 @@
 </details>
 {% } %}
 {% if (!ctx.label.hidden && ctx.label.labelPosition === 'bottom') { %}
-<label class="{{ctx.label.className}}">
-    {{ ctx.render('label', ctx) }}
-</label>
+{{ ctx.render('label', ctx) }}
 {% } %}

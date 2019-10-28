@@ -1,0 +1,5 @@
+<label class="govuk-label {{ctx.label.className}}">
+    {% if (!ctx.label.hidden) { %}
+    {{ ctx.t(ctx.component.label) }}
+    {% } %}
+</label>
