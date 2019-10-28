@@ -3,5 +3,6 @@ declare const _default: {
     'formio-tab-link-container-active': string;
     'is-invalid': string;
     'formio-error-wrapper': string;
+    'row': string;
 };
 export default _default;

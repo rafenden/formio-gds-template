@@ -5,6 +5,7 @@ import container from './container';
 import columns from './columns';
 import cssClasses from './cssClasses';
 import day from './day';
+import datagrid from './datagrid';
 import field from './field';
 import fieldset from './fieldset';
 import input from './input';
@@ -37,6 +38,7 @@ export default {
     component,
     container,
     day,
+    datagrid,
     input,
     field,
     fieldset,

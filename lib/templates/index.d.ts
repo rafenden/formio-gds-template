@@ -6,6 +6,7 @@ declare const _default: {
             'formio-tab-link-container-active': string;
             'is-invalid': string;
             'formio-error-wrapper': string;
+            'row': string;
         };
         button: {
             form: string;
@@ -23,6 +24,9 @@ declare const _default: {
             form: string;
         };
         day: {
+            form: string;
+        };
+        datagrid: {
             form: string;
         };
         input: {
