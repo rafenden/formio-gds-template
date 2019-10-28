@@ -2,6 +2,7 @@ import button from './button';
 import checkbox from './checkbox';
 import component from './component';
 import container from './container';
+import columns from './columns';
 import cssClasses from './cssClasses';
 import day from './day';
 import field from './field';
@@ -32,6 +33,7 @@ export default {
     cssClasses,
     button,
     checkbox,
+    columns,
     component,
     container,
     day,

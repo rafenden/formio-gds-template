@@ -12,6 +12,9 @@ declare const _default: {
     checkbox: {
         form: string;
     };
+    columns: {
+        form: string;
+    };
     component: {
         form: string;
     };
