@@ -58,6 +58,12 @@ declare const _default: {
         wizard: {
             form: string;
         };
+        wizardHeader: {
+            form: string;
+        };
+        wizardNav: {
+            form: string;
+        };
     };
 };
 export default _default;

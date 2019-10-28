@@ -16,6 +16,8 @@ import tab from './tab';
 import table from './table';
 import warning from './warning';
 import wizard from './wizard';
+import wizardHeader from './wizardHeader';
+import wizardNav from './wizardNav';
 
 export default {
     transform(type, text) {
@@ -45,4 +47,6 @@ export default {
     tab,
     warning,
     wizard,
+    wizardHeader,
+    wizardNav,
 };
