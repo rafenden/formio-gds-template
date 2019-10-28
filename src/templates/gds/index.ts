@@ -9,6 +9,7 @@ import fieldset from './fieldset';
 import input from './input';
 import label from './label';
 import message from './message';
+import panel from './panel';
 import radio from './radio';
 import select from './select';
 import tab from './tab';
@@ -37,6 +38,7 @@ export default {
     fieldset,
     label,
     message,
+    panel,
     radio,
     select,
     table,

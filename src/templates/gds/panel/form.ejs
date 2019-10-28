@@ -1,0 +1,32 @@
+<div class="govuk-accordion" data-module="govuk-accordion">
+    {% if (ctx.component.collapsible) { %}
+    <div class="govuk-accordion__section {{!ctx.collapsed ? 'govuk-accordion__section--expanded': ''}}">
+        <div class="govuk-accordion__section-header" ref="header">
+            <h2 class="govuk-accordion__section-heading">
+                <span class="govuk-accordion__section-button">
+                   {{ctx.t(ctx.component.title)}}
+                </span>
+                <span class="govuk-accordion__icon"></span>
+            </h2>
+        </div>
+        {% if (!ctx.collapsed ) { %}
+        <div class="govuk-accordion__section-content">
+            {{ctx.children}}
+        </div>
+        {% } %}
+    </div>
+    {% } else { %}
+    <div class="govuk-accordion__section govuk-accordion__section--expanded">
+        <div class="govuk-accordion__section-header" ref="header">
+            <h2 class="govuk-accordion__section-heading">
+                <span class="govuk-accordion__section-button">
+                   {{ctx.t(ctx.component.title)}}
+                </span>
+            </h2>
+        </div>
+        <div class="govuk-accordion__section-content">
+            {{ctx.children}}
+        </div>
+    </div>
+    {% } %}
+</div>

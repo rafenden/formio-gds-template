@@ -36,6 +36,9 @@ declare const _default: {
     message: {
         form: string;
     };
+    panel: {
+        form: string;
+    };
     radio: {
         form: string;
     };
