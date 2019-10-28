@@ -3,7 +3,7 @@
 {% } %}
 <{{ctx.input.type}}
 ref="{{ctx.input.ref ? ctx.input.ref : 'input'}}"
-style="margin-bottom: 0px"
+style="margin-bottom: 10px"
 {% for (var attr in ctx.input.attr) { %}
 {{attr}}="{{ctx.input.attr[attr]}}{% if (attr==='class') { if (ctx.input.type === 'textarea'){ %} govuk-textarea {% } else { %} govuk-input {%} } %}"
 {% } %}
