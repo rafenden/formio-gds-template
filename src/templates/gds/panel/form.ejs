@@ -10,7 +10,7 @@
             </h2>
         </div>
         {% if (!ctx.collapsed ) { %}
-        <div class="govuk-accordion__section-content">
+        <div class="govuk-accordion__section-content" ref="{{ctx.nestedKey}}">
             {{ctx.children}}
         </div>
         {% } %}
@@ -24,7 +24,7 @@
                 </span>
             </h2>
         </div>
-        <div class="govuk-accordion__section-content">
+        <div class="govuk-accordion__section-content" ref="{{ctx.nestedKey}}">
             {{ctx.children}}
         </div>
     </div>
