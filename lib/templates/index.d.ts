@@ -59,6 +59,9 @@ declare const _default: {
         select: {
             form: string;
         };
+        selectOption: {
+            form: string;
+        };
         table: {
             form: string;
         };

@@ -1,3 +1,4 @@
+import 'govuk-frontend/govuk/all.scss';
 declare const _default: {
     transform(type: any, text: any): any;
     defaultIconset: string;
@@ -56,6 +57,9 @@ declare const _default: {
         form: string;
     };
     select: {
+        form: string;
+    };
+    selectOption: {
         form: string;
     };
     table: {

@@ -31,6 +31,9 @@
     "url": "https://github.com/DigitalPatterns/formio-gds-template/issues"
   },
   "homepage": "https://github.com/DigitalPatterns/formio-gds-template#readme",
+  "dependencies": {
+    "govuk-frontend": "^3.3.0"
+  },
   "devDependencies": {
     "@types/chai": "^4.2.3",
     "@types/ejs": "^2.6.3",

@@ -8,13 +8,16 @@ import datagrid from './datagrid';
 import day from './day';
 import field from './field';
 import fieldset from './fieldset';
+import 'govuk-frontend/govuk/all.scss';
 import iconClass from './iconClass';
+import {initAll} from 'govuk-frontend';
 import input from './input';
 import label from './label';
 import message from './message';
 import panel from './panel';
 import radio from './radio';
 import select from './select';
+import selectOption from './selectOption';
 import tab from './tab';
 import table from './table';
 import warning from './warning';
@@ -22,6 +25,7 @@ import wizard from './wizard';
 import wizardHeader from './wizardHeader';
 import wizardNav from './wizardNav';
 
+initAll();
 export default {
     transform(type, text) {
         if (!text) {
@@ -50,6 +54,7 @@ export default {
     panel,
     radio,
     select,
+    selectOption,
     table,
     tab,
     warning,
