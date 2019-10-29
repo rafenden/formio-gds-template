@@ -40,6 +40,9 @@ declare const _default: {
             input: {
                 form: string;
             };
+            editgrid: {
+                form: string;
+            };
             field: {
                 form: string;
             };

@@ -1,5 +1,12 @@
+{% if (ctx.component.prefix || ctx.component.suffix) { %}
+<div class="input-group">
+  {% } %}
 {% if (ctx.component.prefix) { %}
-<label class="govuk-label" ref="prefix" for="{{ctx.input.id}}">{{ctx.component.prefix}}</label>
+<div class="input-group-prepend" ref="prefix">
+  <span class="input-group-text">
+    {{ctx.component.prefix}}
+  </span>
+</div>
 {% } %}
 <{{ctx.input.type}}
 ref="{{ctx.input.ref ? ctx.input.ref : 'input'}}"
@@ -16,5 +23,12 @@ style="margin-bottom: 10px"
 <span class="govuk-hint govuk-character-count__message" ref="wordcount"></span>
 {% } %}
 {% if (ctx.component.suffix) { %}
-<div class="govuk-label" ref="suffix">{{ctx.component.suffix}}</div>
+<div class="input-group-append" ref="suffix">
+  <span class="input-group-text">
+    {{ctx.component.suffix}}
+  </span>
+</div>
+{% } %}
+{% if (ctx.component.prefix || ctx.component.suffix) { %}
+</div>
 {% } %}
