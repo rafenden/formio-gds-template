@@ -1,13 +1,14 @@
 import button from './button';
 import checkbox from './checkbox';
+import columns from './columns';
 import component from './component';
 import container from './container';
-import columns from './columns';
 import cssClasses from './cssClasses';
-import day from './day';
 import datagrid from './datagrid';
+import day from './day';
 import field from './field';
 import fieldset from './fieldset';
+import iconClass from './iconClass';
 import input from './input';
 import label from './label';
 import message from './message';
@@ -31,6 +32,8 @@ export default {
         }
         return text;
     },
+    defaultIconset: 'fa',
+    iconClass,
     cssClasses,
     button,
     checkbox,
