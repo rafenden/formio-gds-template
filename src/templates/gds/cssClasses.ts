@@ -5,7 +5,7 @@ export default  {
     'formio-error-wrapper' : 'govuk-form-group--error',
     'row' : 'govuk-grid-row',
     'form-control ui fluid selection dropdown': 'form-control ui fluid selection dropdown govuk-select',
-    'formio-day-component-month': 'formio-day-component-month govuk-date-input__input govuk-input--width-2',
-    'formio-day-component-day': 'ormio-day-component-day govuk-date-input__input govuk-input--width-2',
-    'formio-day-component-year': 'formio-day-component-year govuk-date-input__input govuk-input--width-4',
+    'formio-day-component-month': 'govuk-date-input__input govuk-input--width-2',
+    'formio-day-component-day': 'govuk-date-input__input govuk-input--width-2',
+    'formio-day-component-year': 'govuk-date-input__input govuk-input--width-4',
 };

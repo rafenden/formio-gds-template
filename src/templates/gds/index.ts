@@ -1,3 +1,4 @@
+import 'govuk-frontend/govuk/all.scss';
 import button from './button';
 import checkbox from './checkbox';
 import columns from './columns';
@@ -8,9 +9,7 @@ import datagrid from './datagrid';
 import day from './day';
 import field from './field';
 import fieldset from './fieldset';
-import 'govuk-frontend/govuk/all.scss';
 import iconClass from './iconClass';
-import {initAll} from 'govuk-frontend';
 import input from './input';
 import label from './label';
 import message from './message';
@@ -24,6 +23,7 @@ import warning from './warning';
 import wizard from './wizard';
 import wizardHeader from './wizardHeader';
 import wizardNav from './wizardNav';
+import {initAll} from 'govuk-frontend';
 
 initAll();
 export default {
