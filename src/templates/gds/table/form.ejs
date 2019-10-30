@@ -12,7 +12,7 @@
     {% ctx.tableComponents.forEach(function(row, rowIndex) { %}
     <tr class="govuk-table__row" ref="row-{{ctx.id}}">
         {% row.forEach(function(column, colIndex) { %}
-        <td class="govuk-table__cell" ref="{{ctx.tableKey}}-{{ctx.rowIndex}}"{% if (ctx.cellClassName) { %} class="{{ctx.cellClassName}} govuk-table__cell"{% } %}>{{column}}</td>
+        <td class="govuk-table__cell" ref="{{ctx.tableKey}}-{{rowIndex}}"{% if (ctx.cellClassName) { %} class="{{ctx.cellClassName}} govuk-table__cell"{% } %}>{{column}}</td>
         {% }) %}
     </tr>
     {% }) %}

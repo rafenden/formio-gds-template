@@ -1,8 +1,16 @@
-<table class="govuk-table" {% if (ctx.component.layoutFixed) { %}style="table-layout: fixed;"{% } %}>
-    {% if (ctx.hasHeader)  { %}
+<style>
+    @media screen and (max-width: 639px) {
+
+    }
+</style>
+
+<table class="govuk-table" {% if (ctx.component.layoutFixed) { %}style="table-layout: fixed;" {% } %}>
+    {% if (ctx.hasHeader) { %}
     <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-        {% if (ctx.component.reorder) { %}<th class="govuk-table__header"></th>{% } %}
+        {% if (ctx.component.reorder) { %}
+        <th class="govuk-table__header"></th>
+        {% } %}
         {% ctx.columns.forEach(function(col) { %}
         <th class="govuk-table__header {{col.validate && col.validate.required ? 'field-required' : ''}}">
             {{ col.hideLabel ? '' : ctx.t(col.label || col.title) }}
@@ -24,7 +32,7 @@
         <th class="govuk-table__header">
             {% if (ctx.hasAddButton && ctx.hasTopSubmit) { %}
             <button class="govuk-button" ref="{{ctx.datagridKey}}-addRow">
-               {{ctx.t('Add Another')}}
+                {{ctx.t('Add Another')}}
             </button>
             {% } %}
         </th>
@@ -38,13 +46,15 @@
     <tr ref="{{ctx.datagridKey}}-group-header" class="govuk-table__row">
         <td ref="{{ctx.datagridKey}}-group-label"
             colspan="{{ctx.numColumns}}"
-            class="datagrid-group-label">{{ctx.groups[index].label}}</td>
+            class="datagrid-group-label">{{ctx.groups[index].label}}
+        </td>
     </tr>
     {% } %}
     <tr ref="{{ctx.datagridKey}}-row" class="govuk-table__row">
         {% if (ctx.component.reorder) { %}
-        <td class="govuk-table__cell" >
-            <button type="button" style="position: absolute;margin-top: 15px;" title="Reorder item" class="formio-drag-button govuk-button govuk-button--secondary"> <i class="fa fa-bars"></i></button>
+        <td class="govuk-table__cell">
+            <button type="button" style="position: absolute;margin-top: 15px;" title="Reorder item"
+                    class="formio-drag-button govuk-button govuk-button--secondary"><i class="fa fa-bars"></i></button>
         </td>
         {% } %}
         {% ctx.columns.forEach(function(col) { %}
@@ -55,7 +65,8 @@
         {% if (ctx.hasExtraColumn) { %}
         {% if (!ctx.builder && ctx.hasRemoveButtons) { %}
         <td class="govuk-table__cell">
-            <button aria-label="Remove item" title="Remove item" type="button" class="govuk-button govuk-button--warning" ref="{{ctx.datagridKey}}-removeRow"
+            <button aria-label="Remove item" title="Remove item" type="button"
+                    class="govuk-button govuk-button--warning" ref="{{ctx.datagridKey}}-removeRow"
                     style="float: right;margin-top: 15px;">
                 <i class="{{ctx.iconClass('remove')}}"></i>
             </button>
@@ -74,7 +85,8 @@
     <tfoot>
     <tr>
         <td colspan="{{ctx.numColumns + 1}}">
-            <button class="govuk-button" aria-label="{{ctx.t(ctx.component.addAnother || 'Add Another')}}" ref="{{ctx.datagridKey}}-addRow">
+            <button class="govuk-button" aria-label="{{ctx.t(ctx.component.addAnother || 'Add Another')}}"
+                    ref="{{ctx.datagridKey}}-addRow">
                 <i class="{{ctx.iconClass('plus')}}"></i> {{ctx.t(ctx.component.addAnother || 'Add Another')}}
             </button>
         </td>
