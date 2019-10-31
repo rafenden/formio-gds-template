@@ -17,6 +17,7 @@ import message from './message';
 import panel from './panel';
 import radio from './radio';
 import select from './select';
+import selectboxes from './selectboxes';
 import selectOption from './selectOption';
 import tab from './tab';
 import table from './table';
@@ -24,6 +25,7 @@ import warning from './warning';
 import wizard from './wizard';
 import wizardHeader from './wizardHeader';
 import wizardNav from './wizardNav';
+
 import {initAll} from 'govuk-frontend';
 
 initAll();
@@ -56,6 +58,7 @@ export default {
     panel,
     radio,
     select,
+    selectboxes,
     selectOption,
     table,
     tab,
