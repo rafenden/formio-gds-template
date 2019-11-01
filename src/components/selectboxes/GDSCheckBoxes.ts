@@ -1,10 +1,10 @@
-import SelectBoxesComponent from 'formiojs/components/selectboxes/SelectBoxes';
+import Field from 'formiojs/components/_classes/field/Field';
+import SelectBoxes from 'formiojs/components/selectboxes/SelectBoxes';
 
-export default class GDSCheckBoxes extends SelectBoxesComponent {
-
-    public render(children) {
-        // @ts-ignore
-        return super.render(this.renderTemplate('selectboxes', {
+export default class GDSCheckBoxes extends SelectBoxes {
+    public render() {
+         // @ts-ignore
+        return Field.prototype.render.call(this, this.renderTemplate('selectboxes', {
             // @ts-ignore
             input: this.inputInfo,
             // @ts-ignore

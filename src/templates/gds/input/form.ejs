@@ -2,15 +2,7 @@
 <div class="input-group">
   {% } %}
 {% if (ctx.component.prefix) { %}
-<div ref="prefix" style="height: 2.5rem;
-    margin-top: 0;
-    padding: 5px;
-    border: 2px solid #0b0c0c;
-    min-width: 3rem;
-    text-align: center;
-    background-color: #1d70b8;
-    border-right: none;
-    color: white;">
+<div ref="prefix" class="input-prefix-tag">
   <span>
     {{ctx.component.prefix}}
   </span>
@@ -31,15 +23,7 @@ style="margin-bottom: 10px"
 <span class="govuk-hint govuk-character-count__message" ref="wordcount"></span>
 {% } %}
 {% if (ctx.component.suffix) { %}
-<div style="height: 2.5rem;
-    margin-top: 0;
-    padding: 5px;
-    border: 2px solid #0b0c0c;
-    min-width: 3rem;
-    text-align: center;
-    background-color: #1d70b8;
-    border-left: none;
-    color: white;" ref="suffix">
+<div class="input-suffix-tag">
   <span>
     {{ctx.component.suffix}}
   </span>

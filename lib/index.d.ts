@@ -1,7 +1,4 @@
 declare const _default: {
-    components: {
-        selectboxes: typeof import("./components/selectboxes/GDSCheckBoxes").default;
-    };
     framework: string;
     templates: {
         gds: {
@@ -92,6 +89,9 @@ declare const _default: {
                 form: string;
             };
         };
+    };
+    components: {
+        selectboxes: typeof import("./components/selectboxes/GDSCheckBoxes").default;
     };
 };
 export default _default;

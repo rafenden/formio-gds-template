@@ -1,4 +1,5 @@
 import 'govuk-frontend/govuk/all.scss';
+import './template.css';
 declare const _default: {
     transform(type: any, text: any): any;
     defaultIconset: string;
