@@ -34,4 +34,38 @@
   color: white;
 }
 
+@media screen and (max-width: 639px) {
+  #reorder {
+    display: none;
+  }
+
+  table.res-datagrid thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table.res-datagrid tr {
+    display: block;
+  }
+
+  table.res-datagrid td {
+    display: block;
+    width: 100%;
+  }
+
+  table.res-datagrid td::before {
+    content: attr(data-label);
+  }
+
+  table.res-datagrid td:last-child {
+    border-bottom: 10px;
+  }
+}
+
 /*# sourceMappingURL=template.css.map */
