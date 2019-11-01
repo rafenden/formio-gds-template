@@ -1,3 +1,4 @@
+import './template.css';
 import 'govuk-frontend/govuk/all.scss';
 import button from './button';
 import checkbox from './checkbox';
@@ -21,7 +22,6 @@ import selectboxes from './selectboxes';
 import selectOption from './selectOption';
 import tab from './tab';
 import table from './table';
-import './template.css';
 import warning from './warning';
 import wizard from './wizard';
 import wizardHeader from './wizardHeader';
