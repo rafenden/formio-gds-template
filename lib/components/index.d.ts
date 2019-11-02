@@ -1,5 +1,2 @@
-import selectboxes from './selectboxes/GDSCheckBoxes';
-declare const _default: {
-    selectboxes: typeof selectboxes;
-};
+declare const _default: {};
 export default _default;

@@ -1,6 +1,6 @@
 {
   "name": "@digitalpatterns/formio-gds-template",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Gov UK design system formio templates",
   "publishConfig": {
     "access": "public"
@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/DigitalPatterns/formio-gds-template#readme",
   "dependencies": {
-    "formiojs": "^4.6.2",
+    "formiojs": "^4.7.0",
     "govuk-frontend": "^3.3.0"
   },
   "devDependencies": {
