@@ -27,8 +27,8 @@ Formio.use(gds);
 Using react-formio
 
 ```javascript
-import {Formio} from "react-formio";
 import gds from '@digitalpatterns/formio-gds-template';
+import {Formio} from "react-formio";
 
 Formio.use(gds);
 ```
