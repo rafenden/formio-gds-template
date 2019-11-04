@@ -1,4 +1,7 @@
 # Change Log
+##1.0.6
+- Fixed checkbox layout
+- Moved css into template.css
 
 ##1.0.5
 Provides GDS template for:
