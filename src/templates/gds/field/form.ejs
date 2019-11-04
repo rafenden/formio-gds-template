@@ -4,6 +4,7 @@
 {% if (ctx.component.description) { %}
 <div class="govuk-hint">{{ctx.t(ctx.component.description)}}</div>
 {% } %}
+<div ref="messageContainer" class="govuk-error-message"></div>
 {{ctx.element}}
 {% if (ctx.component.tooltip) { %}
 <details class="govuk-details">
