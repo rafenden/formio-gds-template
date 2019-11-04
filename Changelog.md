@@ -1,4 +1,8 @@
 # Change Log
+##1.0.7
+- Implemented template for survey
+- Moved error message top of component
+
 ##1.0.6
 - Fixed checkbox layout
 - Moved css into template.css
