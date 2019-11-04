@@ -19,7 +19,7 @@ This project provides the templates required to implement the GDS Design System 
 Using vanilla formio
 ```javascript
 import gds from '@digitalpatterns/formio-gds-template';
-import Formio from 'formiojs';
+import {Formio} from 'formiojs';
 
 Formio.use(gds);
 ```
