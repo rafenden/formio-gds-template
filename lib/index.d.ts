@@ -70,6 +70,9 @@ declare const _default: {
             selectOption: {
                 form: string;
             };
+            survey: {
+                form: string;
+            };
             table: {
                 form: string;
             };

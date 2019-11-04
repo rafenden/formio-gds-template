@@ -4,6 +4,7 @@
     -moz-box-sizing: content-box;
     box-sizing: content-box;
   }
+
   *:before,
   *:after {
     -webkit-box-sizing: content-box;
@@ -68,4 +69,8 @@
     border-bottom: 10px;
   }
 
+}
+
+.govuk-details {
+  margin-bottom: 0px !important;
 }

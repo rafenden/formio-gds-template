@@ -67,5 +67,8 @@
     border-bottom: 10px;
   }
 }
+.govuk-details {
+  margin-bottom: 0px !important;
+}
 
 /*# sourceMappingURL=template.css.map */

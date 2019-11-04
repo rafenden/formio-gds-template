@@ -20,6 +20,7 @@ import radio from './radio';
 import select from './select';
 import selectboxes from './selectboxes';
 import selectOption from './selectOption';
+import survey from './survey';
 import tab from './tab';
 import table from './table';
 import warning from './warning';
@@ -61,6 +62,7 @@ export default {
     select,
     selectboxes,
     selectOption,
+    survey,
     table,
     tab,
     warning,
