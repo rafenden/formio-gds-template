@@ -17,10 +17,10 @@ style="margin-bottom: 10px"
 >{{ctx.input.content}}
 </{{ctx.input.type}}>
 {% if (ctx.component.showCharCount) { %}
-<span class="govuk-hint govuk-character-count__message" ref="charcount"></span>
+<span class="govuk-hint govuk-character-count__message" style="float:left; margin-right: 5px" ref="charcount"></span>
 {% } %}
 {% if (ctx.component.showWordCount) { %}
-<span class="govuk-hint govuk-character-count__message" ref="wordcount"></span>
+<span class="govuk-hint govuk-character-count__message" style="float:left; margin-right: 5px" ref="wordcount"></span>
 {% } %}
 {% if (ctx.component.suffix) { %}
 <div class="input-suffix-tag">
