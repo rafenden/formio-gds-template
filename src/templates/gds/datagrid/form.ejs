@@ -9,7 +9,7 @@
         <th class="govuk-table__header {{col.validate && col.validate.required ? 'field-required' : ''}}">
             {{ col.hideLabel ? '' : ctx.t(col.label || col.title) }}
             {% if (col.tooltip) { %}
-            <details class="govuk-details">
+            <details class="govuk-details" style="margin-top: 5px">
                 <summary class="govuk-details__summary">
                         <span class="govuk-details__summary-text">
                           {{col.tooltipTitle || 'Help'}}

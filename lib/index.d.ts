@@ -93,6 +93,8 @@ declare const _default: {
             };
         };
     };
-    components: {};
+    components: {
+        selectboxes: typeof import("./components/selectboxes/GDSCheckBoxes").default;
+    };
 };
 export default _default;
