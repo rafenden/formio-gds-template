@@ -1,4 +1,8 @@
 # Change Log
+##1.1.0
+- Moved formiojs to peerDependency
+- Implement selectboxes for GDS
+
 ##1.0.7
 - Implemented template for survey
 - Moved error message top of component
