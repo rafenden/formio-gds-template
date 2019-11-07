@@ -95,6 +95,7 @@ declare const _default: {
     };
     components: {
         selectboxes: typeof import("./components/selectboxes/GDSCheckBoxes").default;
+        editgrid: typeof import("./components/editgrid/GDSEditGrid").default;
     };
 };
 export default _default;
