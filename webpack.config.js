@@ -5,7 +5,8 @@ module.exports = {
     output: {
         library: 'gds',
         libraryTarget: 'umd',
-        path: path.resolve(__dirname, 'dist'),
+        libraryExport: "default" ,
+        path: path.resolve(__dirname, 'lib/dist'),
         filename: 'gds.js',
     },
     module: {
