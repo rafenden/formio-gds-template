@@ -15,7 +15,7 @@
     "watch": "concurrently \"npm run watch-ts\" \"npm run watch-sass\"",
     "build": "tsc && gulp templates && npm run build-sass",
     "lint": "tslint -p .",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build && webpack"
   },
   "pre-commit": [
     "lint",
@@ -26,7 +26,10 @@
     "url": "git+https://github.com/DigitalPatterns/formio-gds-template.git"
   },
   "keywords": [
-    "formio"
+    "formio",
+    "GDS",
+    "Design",
+    "System"
   ],
   "author": "Amin Mohammed-Coleman",
   "license": "MIT",
@@ -48,6 +51,7 @@
     "@types/node-sass": "^4.11.0",
     "@types/sinon": "^7.5.0",
     "chai": "^4.2.0",
+    "css-loader": "^3.2.0",
     "formiojs": "^4.7.2",
     "gulp": "^4.0.2",
     "gulp-insert": "^0.5.0",
@@ -57,11 +61,15 @@
     "node-sass": "^4.13.0",
     "nyc": "^14.1.1",
     "pre-commit": "^1.2.2",
+    "sass-loader": "^8.0.0",
     "sinon": "^7.5.0",
+    "style-loader": "^1.0.0",
     "ts-node": "^8.4.1",
     "ts-sinon": "^1.0.24",
     "tslint": "^5.20.0",
     "typed-scss-modules": "0.0.12",
-    "typescript": "^3.6.4"
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   }
 }
