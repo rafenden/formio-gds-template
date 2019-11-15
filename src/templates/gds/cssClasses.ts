@@ -4,7 +4,7 @@ export default  {
     'is-invalid' : 'govuk-input--error govuk-textarea--error',
     'formio-error-wrapper' : 'govuk-form-group--error',
     'row' : 'govuk-grid-row',
-    'form-control ui fluid selection dropdown': 'form-control ui fluid selection dropdown govuk-select',
+    'form-control ui fluid selection dropdown': 'form-control govuk-select',
     'formio-day-component-month': 'govuk-date-input__input govuk-input--width-2',
     'formio-day-component-day': 'govuk-date-input__input govuk-input--width-2',
     'formio-day-component-year': 'govuk-date-input__input govuk-input--width-4',
