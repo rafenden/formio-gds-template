@@ -1,5 +1,5 @@
 # Change Log
-##1.1.8
+##1.1.9
 - Custom class name can be passed into table, datagrid and editgrid
 
 ##1.1.0
