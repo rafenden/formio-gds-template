@@ -1,4 +1,4 @@
-<table class="govuk-table res-datagrid" {% if (ctx.component.layoutFixed) { %}style="table-layout: fixed;" {% } %}>
+<table class="govuk-table res-datagrid {{ctx.component.customClass}}" {% if (ctx.component.layoutFixed) { %}style="table-layout: fixed;" {% } %}>
     {% if (ctx.hasHeader) { %}
     <thead class="govuk-table__head">
     <tr class="govuk-table__row">

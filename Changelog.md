@@ -1,4 +1,7 @@
 # Change Log
+##1.1.8
+- Custom class name can be passed into table, datagrid and editgrid
+
 ##1.1.0
 - Moved formiojs to peerDependency
 - Implement selectboxes for GDS
