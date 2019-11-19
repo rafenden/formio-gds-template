@@ -1,4 +1,9 @@
 # Change Log
+##1.2.1
+- Fixed issue with formiojs classes
+- Upgraded to use formio js 4.7.8
+- Webpack fix
+
 ##1.1.9
 - Custom class name can be passed into table, datagrid and editgrid
 

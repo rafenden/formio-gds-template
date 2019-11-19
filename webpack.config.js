@@ -9,6 +9,9 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'gds.js',
     },
+    externals: {
+        formiojs: 'Formio'
+    },
     module: {
         rules: [
             {
