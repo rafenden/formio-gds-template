@@ -4,11 +4,3 @@
 {{attr}}="{{ctx.input.attr[attr]}}{% if (attr==='class') { %} govuk-select {% } %}"
 {% } %}
 >{{ctx.selectOptions}}</select>
-<input type="text"
-       class="formio-select-autocomplete-input"
-       ref="autocompleteInput"
-       {% if (ctx.input.attr.autocomplete) { %}
-       autocomplete="{{ctx.input.attr.autocomplete}}"
-       {% } %}
-       tabindex="-1"
-/>
