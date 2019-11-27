@@ -77,6 +77,9 @@ declare const _default: {
         tab: {
             form: string;
         };
+        time: {
+            form: string;
+        };
         warning: {
             form: string;
         };

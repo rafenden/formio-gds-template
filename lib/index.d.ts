@@ -79,6 +79,9 @@ declare const _default: {
             tab: {
                 form: string;
             };
+            time: {
+                form: string;
+            };
             warning: {
                 form: string;
             };
@@ -95,6 +98,7 @@ declare const _default: {
     };
     components: {
         selectboxes: typeof import("./components/selectboxes/GDSCheckBoxes").default;
+        time: typeof import("./components/time/GDSTimeComponent").default;
     };
 };
 export default _default;

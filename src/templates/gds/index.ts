@@ -23,6 +23,7 @@ import selectOption from './selectOption';
 import survey from './survey';
 import tab from './tab';
 import table from './table';
+import time from './time';
 import warning from './warning';
 import wizard from './wizard';
 import wizardHeader from './wizardHeader';
@@ -65,6 +66,7 @@ export default {
     survey,
     table,
     tab,
+    time,
     warning,
     wizard,
     wizardHeader,
