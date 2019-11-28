@@ -5,6 +5,7 @@ const Field = Components.components['field'];
 const Time = Components.components['time'];
 
 export default class GDSTimeComponent extends Time {
+    private static MAX_LENGTH = 2;
 
     public attach(element) {
         this.loadRefs(element, {
@@ -29,12 +30,33 @@ export default class GDSTimeComponent extends Time {
             // @ts-ignore
             this.updateValue(null, {modified: true})
         });
+        // @ts-ignore
+        this.addEventListener(this.refs.hour, 'keypress', (evt) => {
+            this.preventNonNumericKeyPress(evt);
+        });
+        // @ts-ignore
+        this.addEventListener(this.refs.minute, 'keypress', (evt) => {
+            this.preventNonNumericKeyPress(evt);
+        });
         return super.attach(element);
+    }
+
+    private preventNonNumericKeyPress(evt) {
+        // @ts-ignore
+        if (evt.which != 8 && evt.which != 0 && evt.which < 48 || evt.which > 57) {
+            // @ts-ignore
+            evt.preventDefault();
+        }
     }
 
     private checkAndValidateHour(): void {
         // @ts-ignore
         if (this.refs.hour.value) {
+            // @ts-ignore
+            if (this.refs.hour.value.length > GDSTimeComponent.MAX_LENGTH) {
+                // @ts-ignore
+                this.refs.hour.value = this.refs.hour.value.slice(0, 2);
+            }
             // @ts-ignore
             const hourAsNumber = parseInt(this.refs.hour.value);
             if (hourAsNumber > 23) {
@@ -47,9 +69,15 @@ export default class GDSTimeComponent extends Time {
             }
         }
     }
-    private checkAndValidateMinutes()  : void {
+
+    private checkAndValidateMinutes(): void {
         // @ts-ignore
         if (this.refs.minute.value) {
+            // @ts-ignore
+            if (this.refs.minute.value.length > GDSTimeComponent.MAX_LENGTH) {
+                // @ts-ignore
+                this.refs.minute.value = this.refs.minute.value.slice(0, 2);
+            }
             // @ts-ignore
             const minuteAsNumber = parseInt(this.refs.minute.value);
             if (minuteAsNumber > 59) {
@@ -70,6 +98,7 @@ export default class GDSTimeComponent extends Time {
         // @ts-ignore
         super.addInputError(message, dirty, element)
     }
+
     public removeInputError(elements) {
         // @ts-ignore
         super.removeInputError([this.refs.hour, this.refs.minute]);
@@ -85,7 +114,7 @@ export default class GDSTimeComponent extends Time {
         // @ts-ignore
         const value = `${this.refs.hour.value}:${this.refs.minute.value}`;
         // @ts-ignore
-        return  moment(value, this.dataFormat).format(this.component.format);
+        return moment(value, this.component.format).format(this.component.dataFormat);
     }
 
     public setValue(value, flags) {
@@ -101,7 +130,6 @@ export default class GDSTimeComponent extends Time {
     }
 
     public render() {
-        return Field.prototype.render.call(this, this.renderTemplate('time', {
-        }));
+        return Field.prototype.render.call(this, this.renderTemplate('time', {}));
     }
 }
