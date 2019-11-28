@@ -1,4 +1,7 @@
 # Change Log
+##1.2.3
+- GDS time component implementation
+
 ##1.2.1
 - Fixed issue with formiojs classes
 - Upgraded to use formio js 4.7.8
