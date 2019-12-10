@@ -19,7 +19,7 @@ export default class GDSTimeComponent extends Time {
             // @ts-ignore
             this.checkComponentValidity(this.data, true);
             // @ts-ignore
-            this.updateValue(null, {modified: true})
+            this.updateValue(null, {modified: true});
         });
         // @ts-ignore
         this.addEventListener(this.refs.minute, 'input', () => {
@@ -28,7 +28,7 @@ export default class GDSTimeComponent extends Time {
             // @ts-ignore
             this.checkComponentValidity(this.data, true);
             // @ts-ignore
-            this.updateValue(null, {modified: true})
+            this.updateValue(null, {modified: true});
         });
         // @ts-ignore
         this.addEventListener(this.refs.hour, 'keypress', (evt) => {
@@ -41,9 +41,59 @@ export default class GDSTimeComponent extends Time {
         return super.attach(element);
     }
 
+
+
+    // @ts-ignore
+    public addInputError(message: any, dirty: boolean, element: any): void {
+        // @ts-ignore
+        super.addInputError(message, dirty, [this.refs.hour, this.refs.minute]);
+        // @ts-ignore
+        super.addInputError(message, dirty, element);
+    }
+
+    public removeInputError(elements) {
+        // @ts-ignore
+        super.removeInputError([this.refs.hour, this.refs.minute]);
+        // @ts-ignore
+        super.removeInputError(elements);
+    }
+
+    public getValue() {
+        // @ts-ignore
+        if (!this.refs.hour.value || !this.refs.minute.value) {
+            return '';
+        }
+        // @ts-ignore
+        const value = `${this.refs.hour.value}:${this.refs.minute.value}`;
+        // @ts-ignore
+        return moment(value, this.component.format).format(this.component.dataFormat);
+    }
+
+    public setValue(value, flags) {
+        // @ts-ignore
+        if (this.refs.hour && this.refs.minute && value) {
+            const parts = value.split(':');
+            // @ts-ignore-file
+            this.refs.hour.value = parts[0];
+            // @ts-ignore
+            this.refs.minute.value = parts[1];
+            return true;
+        }
+        return false;
+    }
+
+    public render() {
+        return Field.prototype.render.call(this, this.renderTemplate('time', {
+            // @ts-ignore
+            hour: super.getValue().split(':')[0],
+            // @ts-ignore
+            minute: super.getValue().split(':')[1],
+        }));
+    }
+
     private preventNonNumericKeyPress(evt) {
         // @ts-ignore
-        if (evt.which != 8 && evt.which != 0 && evt.which < 48 || evt.which > 57) {
+        if (evt.which !== 8 && evt.which !== 0 && evt.which < 48 || evt.which > 57) {
             // @ts-ignore
             evt.preventDefault();
         }
@@ -89,47 +139,5 @@ export default class GDSTimeComponent extends Time {
                 this.refs.minute.value = '00';
             }
         }
-    }
-
-    // @ts-ignore
-    public addInputError(message: any, dirty: boolean, element: any): void {
-        // @ts-ignore
-        super.addInputError(message, dirty, [this.refs.hour, this.refs.minute]);
-        // @ts-ignore
-        super.addInputError(message, dirty, element)
-    }
-
-    public removeInputError(elements) {
-        // @ts-ignore
-        super.removeInputError([this.refs.hour, this.refs.minute]);
-        // @ts-ignore
-        super.removeInputError(elements);
-    }
-
-    public getValue() {
-        // @ts-ignore
-        if (!this.refs.hour.value || !this.refs.minute.value) {
-            return '';
-        }
-        // @ts-ignore
-        const value = `${this.refs.hour.value}:${this.refs.minute.value}`;
-        // @ts-ignore
-        return moment(value, this.component.format).format(this.component.dataFormat);
-    }
-
-    public setValue(value, flags) {
-        if (value) {
-            const parts = value.split(':');
-            // @ts-ignore
-            this.refs.hour.value = parts[0];
-            // @ts-ignore
-            this.refs.minute.value = parts[1];
-            return true;
-        }
-        return false;
-    }
-
-    public render() {
-        return Field.prototype.render.call(this, this.renderTemplate('time', {}));
     }
 }

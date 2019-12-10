@@ -1,4 +1,7 @@
 # Change Log
+##1.2.4
+- Bug fix GDS time render on wizard
+
 ##1.2.3
 - GDS time component implementation
 
