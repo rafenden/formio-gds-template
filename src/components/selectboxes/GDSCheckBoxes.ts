@@ -1,6 +1,6 @@
 import {Components} from 'formiojs';
-const Field = Components.components['field'];
-const SelectBoxes = Components.components['selectboxes'];
+const Field = Components.components.field;
+const SelectBoxes = Components.components.selectboxes;
 
 export default class GDSCheckBoxes extends SelectBoxes {
     public render() {

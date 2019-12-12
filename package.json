@@ -15,7 +15,8 @@
     "watch": "concurrently \"npm run watch-ts\" \"npm run watch-sass\"",
     "build": "tsc && gulp templates && npm run build-sass && webpack",
     "tag": "VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]');git add -A; git commit -nm \"Build $Version\";git push origin master;git tag v$VERSION;git push origin --tags;",
-    "lint": "tslint -p .",
+    "lint": "tslint --project tsconfig.json",
+    "lint:fix": "tslint --project tsconfig.json --fix",
     "prepublish": "npm run build"
   },
   "pre-commit": [
@@ -42,11 +43,13 @@
     "formiojs": "^4.7.8"
   },
   "dependencies": {
-    "govuk-frontend": "^3.3.0"
+    "govuk-frontend": "^3.3.0",
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
     "@types/chai": "^4.2.3",
     "@types/ejs": "^2.6.3",
+    "@types/lodash": "^4.14.149",
     "@types/mocha": "^5.2.7",
     "@types/moment": "^2.13.0",
     "@types/node": "^12.11.2",
@@ -72,7 +75,7 @@
     "ts-sinon": "^1.0.24",
     "tslint": "^5.20.0",
     "typed-scss-modules": "0.0.12",
-    "typescript": "^3.6.4",
+    "typescript": "^3.7.3",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   }

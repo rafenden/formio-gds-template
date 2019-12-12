@@ -1,4 +1,3 @@
-import './template.css';
 import 'govuk-frontend/govuk/all.scss';
 import button from './button';
 import checkbox from './checkbox';
@@ -7,6 +6,7 @@ import component from './component';
 import container from './container';
 import cssClasses from './cssClasses';
 import datagrid from './datagrid';
+import datetime from './datetime';
 import day from './day';
 import editgrid from './editgrid';
 import field from './field';
@@ -23,6 +23,7 @@ import selectOption from './selectOption';
 import survey from './survey';
 import tab from './tab';
 import table from './table';
+import './template.css';
 import time from './time';
 import warning from './warning';
 import wizard from './wizard';
@@ -50,6 +51,7 @@ export default {
     columns,
     component,
     container,
+    datetime,
     day,
     datagrid,
     input,

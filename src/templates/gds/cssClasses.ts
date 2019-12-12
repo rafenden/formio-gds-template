@@ -8,4 +8,6 @@ export default  {
     'formio-day-component-month': 'govuk-date-input__input govuk-input--width-2',
     'formio-day-component-day': 'govuk-date-input__input govuk-input--width-2',
     'formio-day-component-year': 'govuk-date-input__input govuk-input--width-4',
+    'formio-day-component-hour': 'govuk-date-input__input govuk-input--width-2',
+    'formio-day-component-minute': 'govuk-date-input__input govuk-input--width-2',
 };
