@@ -3,6 +3,7 @@ import FormioUtils from 'formiojs/utils';
 import * as _ from 'lodash';
 import * as moment from 'moment';
 import boolValue = Utils.boolValue;
+import TimeHelper from '../util/TimeHelper';
 
 const Field = Components.components.field;
 const Day = Components.components.day;
@@ -40,9 +41,11 @@ export default class GDSDatetimeComponent extends Day {
     private inputDefinition: any;
     private checkComponentValidity: any;
 
+    private timeHelper: TimeHelper = new TimeHelper();
     public attach(element: any) {
         this.loadRefs(element, {hour: 'single', minute: 'single'});
         this.addEventListener(this.refs.hour, 'input', () => {
+            this.timeHelper.checkAndValidateHour(this.refs.hour);
             this.setPristine(false);
             this.checkComponentValidity(this.data, true);
             this.updateValue(null, {
@@ -51,6 +54,7 @@ export default class GDSDatetimeComponent extends Day {
         });
 
         this.addEventListener(this.refs.minute, 'input', () => {
+            this.timeHelper.checkAndValidateMinutes(this.refs.minute);
             this.setPristine(false);
             this.checkComponentValidity(this.data, true);
             this.updateValue(null, {
@@ -118,11 +122,7 @@ export default class GDSDatetimeComponent extends Day {
 
     public getDate(value) {
         const defaults = [];
-        let day;
-        let month;
-        let year;
-        let hour;
-        let minute;
+
         const [DAY, MONTH, YEAR, HOUR, MINUTE] = [0, 1, 2, 3, 4];
         const defaultValue = value || this.component.defaultValue;
 
@@ -139,30 +139,11 @@ export default class GDSDatetimeComponent extends Day {
             }
         }
 
-        day = this.refs.day ? parseInt(this.refs.day.value, 10)  : undefined;
-        if (day === undefined || _.isNaN(day)) {
-            day = defaults[DAY] && !_.isNaN(defaults[DAY]) ? defaults[DAY] : 0;
-        }
-
-        month = this.refs.month ? parseInt(this.refs.month.value, 10) : undefined;
-        if (month === undefined || _.isNaN(month)) {
-            month = defaults[MONTH] && !_.isNaN(defaults[MONTH]) ? defaults[MONTH] : 0;
-        }
-
-        year = this.refs.year ? parseInt(this.refs.year.value, 10) : undefined;
-        if (year === undefined || _.isNaN(year)) {
-            year = defaults[YEAR] && !_.isNaN(defaults[YEAR]) ? defaults[YEAR] : 0;
-        }
-
-        hour = this.refs.hour ? parseInt(this.refs.hour.value, 10) : undefined;
-        if (hour === undefined || _.isNaN(hour)) {
-            hour = defaults[HOUR] && !_.isNaN(defaults[HOUR]) ? defaults[HOUR] : 0;
-        }
-
-        minute = this.refs.minute ? parseInt(this.refs.minute.value, 10) : undefined;
-        if (minute === undefined || _.isNaN(minute)) {
-            minute = defaults[MINUTE] && !_.isNaN(defaults[MINUTE]) ? defaults[MINUTE] : 0;
-        }
+        let day: any = this.processField('day', defaults, DAY);
+        let month: any = this.processField('month', defaults, MONTH);
+        let year: any = this.processField('year', defaults, YEAR);
+        let hour: any = this.processField('hour', defaults, HOUR);
+        let minute: any = this.processField('minute', defaults, MINUTE);
 
         let result;
         if (!day && !month && !year && (!hour || !minute)) {
@@ -211,7 +192,7 @@ export default class GDSDatetimeComponent extends Day {
                 return null;
             }
         }
-        return null;
+        return this.refs[`${name}`].value;
 
     }
 
@@ -269,6 +250,15 @@ export default class GDSDatetimeComponent extends Day {
             return true;
         }
         return !this.isEmpty(value);
+    }
+
+    private processField(field: string, defaults: any[], fieldIndex: number) {
+        let fieldValue = this.refs[`${field}`] ? parseInt(this.refs[`${field}`].value, 10) : undefined;
+        if (fieldValue === undefined || _.isNaN(fieldValue)) {
+            fieldValue = defaults[fieldIndex] && !_.isNaN(defaults[fieldIndex]) ? defaults[fieldIndex] : 0;
+        }
+        return fieldValue;
+
     }
 
     private preventNonNumericKeyPress(evt: any) {

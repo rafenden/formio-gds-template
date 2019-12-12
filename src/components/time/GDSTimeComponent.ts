@@ -1,17 +1,20 @@
 import {Components} from 'formiojs';
 import * as moment from 'moment';
+import TimeHelper from '../util/TimeHelper';
 
 const Field = Components.components.field;
 const Time = Components.components.time;
 
 export default class GDSTimeComponent extends Time {
-    private static MAX_LENGTH = 2;
+    public static MAX_LENGTH = 2;
 
     private refs: any;
     private component: any;
     private loadRefs: any;
     private checkComponentValidity: any;
     private updateValue: any;
+
+    private timeHelper: TimeHelper = new TimeHelper();
 
     public attach(element) {
         this.loadRefs(element, {
@@ -20,25 +23,25 @@ export default class GDSTimeComponent extends Time {
         });
 
         this.addEventListener(this.refs.hour, 'input', () => {
-            this.checkAndValidateHour();
+            this.timeHelper.checkAndValidateHour(this.refs.hour);
             this.setPristine(false);
             this.checkComponentValidity(this.data, true);
             this.updateValue(null, {modified: true});
         });
 
         this.addEventListener(this.refs.minute, 'input', () => {
-            this.checkAndValidateMinutes();
+            this.timeHelper.checkAndValidateMinutes(this.refs.minute);
             this.setPristine(false);
             this.checkComponentValidity(this.data, true);
             this.updateValue(null, {modified: true});
         });
 
         this.addEventListener(this.refs.hour, 'keypress', (evt) => {
-            this.preventNonNumericKeyPress(evt);
+            this.timeHelper.preventNonNumericKeyPress(evt);
         });
 
         this.addEventListener(this.refs.minute, 'keypress', (evt) => {
-            this.preventNonNumericKeyPress(evt);
+            this.timeHelper.preventNonNumericKeyPress(evt);
         });
         return super.attach(element);
     }
@@ -82,43 +85,5 @@ export default class GDSTimeComponent extends Time {
             hour: super.getValue().split(':')[0],
             minute: super.getValue().split(':')[1],
         }));
-    }
-
-    private preventNonNumericKeyPress(evt: any) {
-        if (evt.which !== 8 && evt.which !== 0 && evt.which < 48 || evt.which > 57) {
-            evt.preventDefault();
-        }
-    }
-
-    private checkAndValidateHour(): void {
-
-        if (this.refs.hour.value) {
-            if (this.refs.hour.value.length > GDSTimeComponent.MAX_LENGTH) {
-                this.refs.hour.value = this.refs.hour.value.slice(0, 2);
-            }
-
-            const hourAsNumber = parseInt(this.refs.hour.value, 10);
-            if (hourAsNumber > 23) {
-                this.refs.hour.value = '23';
-            }
-            if (hourAsNumber < 0) {
-                this.refs.hour.value = '00';
-            }
-        }
-    }
-
-    private checkAndValidateMinutes(): void {
-        if (this.refs.minute.value) {
-            if (this.refs.minute.value.length > GDSTimeComponent.MAX_LENGTH) {
-                this.refs.minute.value = this.refs.minute.value.slice(0, 2);
-            }
-            const minuteAsNumber = parseInt(this.refs.minute.value, 10);
-            if (minuteAsNumber > 59) {
-                this.refs.minute.value = '59';
-            }
-            if (minuteAsNumber < 0) {
-                this.refs.minute.value = '00';
-            }
-        }
     }
 }
