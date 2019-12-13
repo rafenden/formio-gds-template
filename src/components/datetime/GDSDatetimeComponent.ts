@@ -109,6 +109,7 @@ export default class GDSDatetimeComponent extends Day {
 
         return Field.prototype.render.call(this, this.renderTemplate('datetime', {
             component: this.component,
+            dataValue: this.dataValue,
             day: this.renderField('day'),
             month: this.renderTemplate('input', {
                 input: this.inputDefinition('month'),
