@@ -40,8 +40,10 @@ export default class GDSDatetimeComponent extends Day {
     private renderField: any;
     private inputDefinition: any;
     private checkComponentValidity: any;
+    private triggerChange: any;
 
     private timeHelper: TimeHelper = new TimeHelper();
+
     public attach(element: any) {
         this.loadRefs(element, {hour: 'single', minute: 'single'});
         this.addEventListener(this.refs.hour, 'input', () => {
@@ -51,6 +53,7 @@ export default class GDSDatetimeComponent extends Day {
             this.updateValue(null, {
                 modified: true,
             });
+            this.triggerChange();
         });
 
         this.addEventListener(this.refs.minute, 'input', () => {
@@ -60,6 +63,7 @@ export default class GDSDatetimeComponent extends Day {
             this.updateValue(null, {
                 modified: true,
             });
+            this.triggerChange();
         });
 
         this.addEventListener(this.refs.hour, 'keypress', (evt) => {
@@ -106,7 +110,6 @@ export default class GDSDatetimeComponent extends Day {
     }
 
     public render() {
-
         return Field.prototype.render.call(this, this.renderTemplate('datetime', {
             component: this.component,
             dataValue: this.dataValue,
@@ -123,7 +126,6 @@ export default class GDSDatetimeComponent extends Day {
 
     public getDate(value) {
         const defaults = [];
-
         const [DAY, MONTH, YEAR, HOUR, MINUTE] = [0, 1, 2, 3, 4];
         const defaultValue = value || this.component.defaultValue;
 
@@ -163,7 +165,7 @@ export default class GDSDatetimeComponent extends Day {
     }
 
     public getFieldValue(name) {
-        if (!this.refs[`${name}`]?.value) {
+        if (this.refs[`${name}`] && !this.refs[`${name}`].value) {
             return null;
         }
         if (this.dataValue && this.dataValue !== 'Invalid date') {
