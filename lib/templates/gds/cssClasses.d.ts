@@ -8,5 +8,7 @@ declare const _default: {
     'formio-day-component-month': string;
     'formio-day-component-day': string;
     'formio-day-component-year': string;
+    'formio-day-component-hour': string;
+    'formio-day-component-minute': string;
 };
 export default _default;

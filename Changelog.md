@@ -1,4 +1,6 @@
 # Change Log
+##1.2.5
+- GDS Datetime component
 ##1.2.4
 - Bug fix GDS time render on wizard
 

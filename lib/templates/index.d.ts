@@ -13,6 +13,8 @@ declare const _default: {
             'formio-day-component-month': string;
             'formio-day-component-day': string;
             'formio-day-component-year': string;
+            'formio-day-component-hour': string;
+            'formio-day-component-minute': string;
         };
         button: {
             form: string;
@@ -27,6 +29,9 @@ declare const _default: {
             form: string;
         };
         container: {
+            form: string;
+        };
+        datetime: {
             form: string;
         };
         day: {
