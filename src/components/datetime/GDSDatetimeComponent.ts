@@ -165,7 +165,7 @@ export default class GDSDatetimeComponent extends Day {
     }
 
     public getFieldValue(name) {
-        if (this.refs[`${name}`] && !this.refs[`${name}`].value) {
+        if (!this.refs[`${name}`] || !this.refs[`${name}`].value) {
             return null;
         }
         if (this.dataValue && this.dataValue !== 'Invalid date') {
