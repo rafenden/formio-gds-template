@@ -7,7 +7,7 @@ import TimeHelper from '../util/TimeHelper';
 
 const Field = Components.components.field;
 const Day = Components.components.day;
-
+// @ts-ignore
 export default class GDSDatetimeComponent extends Day {
 
     get defaultValue() {
@@ -94,12 +94,11 @@ export default class GDSDatetimeComponent extends Day {
         };
     }
 
-    // @ts-ignore
-    public addInputError(message, dirty, elements) {
+    public setErrorClasses(elements, dirty, hasError) {
         // @ts-ignore
-        super.addInputError(message, dirty, [this.refs.hour, this.refs.minute]);
+        super.setErrorClasses(elements, dirty, hasError);
         // @ts-ignore
-        super.addInputError(message, dirty, elements);
+        super.setErrorClasses([this.refs.hour, this.refs.minute], dirty, hasError);
     }
 
     public removeInputError(elements) {
@@ -125,6 +124,9 @@ export default class GDSDatetimeComponent extends Day {
     }
 
     public getDate(value) {
+        if (value) {
+            value = value.replace('//', '');
+        }
         const defaults = [];
         const [DAY, MONTH, YEAR, HOUR, MINUTE] = [0, 1, 2, 3, 4];
         const defaultValue = value || this.component.defaultValue;
@@ -159,13 +161,16 @@ export default class GDSDatetimeComponent extends Day {
         hour = hour.toString().padStart(2, 0);
         minute = minute.toString().padStart(2, 0);
 
-        const toMoment = moment(`${year}-${month}-${day} ${hour}:${minute}`, 'YYYY-MM-DD HH:mm');
-        result = toMoment.format();
-        return result;
+        const toMoment = moment(`${year}-${month}-${day} ${hour}:${minute}`, 'YYYY-MM-DD HH:mm', true);
+        if (toMoment.isValid()) {
+            result = toMoment.format();
+            return result;
+        }
+        return null;
     }
 
     public getFieldValue(name) {
-        if (this.refs[`${name}`] && !this.refs[`${name}`].value) {
+        if (!this.refs[`${name}`] || !this.refs[`${name}`].value) {
             return null;
         }
         if (this.dataValue && this.dataValue !== 'Invalid date') {
@@ -203,27 +208,32 @@ export default class GDSDatetimeComponent extends Day {
         // temporary solution to avoid input reset
         // on invalid date.
         if (!value || value === 'Invalid date') {
-            return null;
+            return;
         }
-        const date = moment(value);
+        const date = moment(value, 'YYYY-MM-DD HH:mm', true);
+        if (date.isValid()) {
+            if (this.refs.day) {
+                this.refs.day.value = date.format('DD');
+            }
+            if (this.refs.month) {
+                this.refs.month.value = date.format('MM');
+            }
+            if (this.refs.year) {
+                this.refs.year.value = date.format('YYYY');
+            }
+            if (this.refs.hour) {
+                this.refs.hour.value = date.format('HH');
+            }
 
-        if (this.refs.day) {
-            this.refs.day.value = date.format('DD');
-        }
-        if (this.refs.month) {
-            this.refs.month.value = date.format('MM');
-        }
-        if (this.refs.year) {
-            this.refs.year.value = date.format('YYYY');
-        }
-        if (this.refs.hour) {
-            this.refs.hour.value = date.format('HH');
+            if (this.refs.minute) {
+                this.refs.minute.value = date.format('mm');
+            }
         }
 
-        if (this.refs.minute) {
-            this.refs.minute.value = date.format('mm');
-        }
+    }
 
+    public normalizeValue(value) {
+        return value;
     }
 
     public validateRequired(setting, value) {
