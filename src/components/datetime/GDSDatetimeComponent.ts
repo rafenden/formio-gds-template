@@ -161,7 +161,7 @@ export default class GDSDatetimeComponent extends Day {
         hour = hour.toString().padStart(2, 0);
         minute = minute.toString().padStart(2, 0);
 
-        const toMoment = moment(`${year}-${month}-${day} ${hour}:${minute}`, 'YYYY-MM-DD HH:mm', true);
+        const toMoment = moment(`${year}-${month}-${day}T${hour}:${minute}:00`, moment.ISO_8601, true);
         if (toMoment.isValid()) {
             result = toMoment.format();
             return result;
@@ -176,7 +176,10 @@ export default class GDSDatetimeComponent extends Day {
         if (this.dataValue && this.dataValue !== 'Invalid date') {
             try {
                 let val = null;
-                const date = moment(this.dataValue);
+                const date = moment(this.dataValue, moment.ISO_8601, true);
+                if (date.isValid()) {
+                    return null;
+                }
 
                 switch (name) {
                     case 'month':
@@ -210,7 +213,7 @@ export default class GDSDatetimeComponent extends Day {
         if (!value || value === 'Invalid date') {
             return;
         }
-        const date = moment(value, 'YYYY-MM-DD HH:mm', true);
+        const date = moment(value, moment.ISO_8601);
         if (date.isValid()) {
             if (this.refs.day) {
                 this.refs.day.value = date.format('DD');
