@@ -1,3 +1,6 @@
+@import "../../../node_modules/govuk-frontend/govuk/settings/all";
+
+
 .govuk-checkboxes__item {
   * {
     -webkit-box-sizing: content-box;
@@ -79,4 +82,16 @@
   padding: .25rem .5rem;
   font-size: .875rem;
   line-height: 1.5;
+}
+
+
+.govuk-form-input--error {
+  border: $govuk-border-width-form-element-error solid $govuk-error-colour !important;
+
+  &:focus {
+    border-color: $govuk-input-border-colour !important;
+    // Remove `box-shadow` inherited from `:focus` as `input--error`
+    // already has the thicker border.
+    box-shadow: none !important;
+  }
 }

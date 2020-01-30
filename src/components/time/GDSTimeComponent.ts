@@ -5,6 +5,7 @@ import TimeHelper from '../util/TimeHelper';
 const Field = Components.components.field;
 const Time = Components.components.time;
 
+// @ts-ignore
 export default class GDSTimeComponent extends Time {
     public static MAX_LENGTH = 2;
 
@@ -46,12 +47,11 @@ export default class GDSTimeComponent extends Time {
         return super.attach(element);
     }
 
-    // @ts-ignore
-    public addInputError(message: any, dirty: boolean, element: any): void {
+    public setErrorClasses(elements, dirty, hasError) {
         // @ts-ignore
-        super.addInputError(message, dirty, [this.refs.hour, this.refs.minute]);
+        super.setErrorClasses(elements, dirty, hasError);
         // @ts-ignore
-        super.addInputError(message, dirty, element);
+        super.setErrorClasses([this.refs.hour, this.refs.minute], dirty, hasError);
     }
 
     public removeInputError(elements) {
