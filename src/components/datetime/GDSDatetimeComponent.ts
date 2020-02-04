@@ -11,6 +11,9 @@ const Day = Components.components.day;
 // @ts-ignore
 export default class GDSDatetimeComponent extends Day {
 
+    get format() {
+        return 'DD-MM-YYYY';
+    }
     get defaultValue() {
 
         let defaultValue = this.component.defaultValue;
@@ -80,6 +83,8 @@ export default class GDSDatetimeComponent extends Day {
         super.init();
         this.validators = this.validators.filter((v) => v !== 'day').concat(['date']);
 
+        this.component.maxDate = this.component.datePicker.maxDate;
+        this.component.minDate = this.component.datePicker.minDate;
         this.component.suffix = null;
 
         this.component.fields.day.required = this.component.validate.required;
@@ -95,18 +100,15 @@ export default class GDSDatetimeComponent extends Day {
         };
     }
 
-    public setErrorClasses(elements, dirty, hasError) {
+    // @ts-ignore
+    public addInputError(message, dirty, elements) {
         // @ts-ignore
-        super.setErrorClasses(elements, dirty, hasError);
-        // @ts-ignore
-        super.setErrorClasses([this.refs.hour, this.refs.minute], dirty, hasError);
+        super.addInputError(message, dirty, [this.refs.hour, this.refs.minute, ...elements]);
     }
 
     public removeInputError(elements) {
         // @ts-ignore
-        super.removeInputError([this.refs.hour, this.refs.minute]);
-        // @ts-ignore
-        super.removeInputError(elements);
+        super.removeInputError([this.refs.hour, this.refs.minute, ...elements]);
     }
 
     public render() {
@@ -117,7 +119,6 @@ export default class GDSDatetimeComponent extends Day {
             month: this.renderTemplate('input', {
                 input: this.inputDefinition('month'),
             }),
-
             year: this.renderField('year'),
             hour: this.renderField('hour'),
             minute: this.renderField('minute'),
@@ -148,8 +149,7 @@ export default class GDSDatetimeComponent extends Day {
         let hour: any = this.processField('hour', defaults, HOUR);
         let minute: any = this.processField('minute', defaults, MINUTE);
 
-        let result;
-        if (!day && !month && !year && (!hour || !minute)) {
+        if (!day && !month && !year && (!hour && !minute)) {
             return null;
         }
 
@@ -159,22 +159,15 @@ export default class GDSDatetimeComponent extends Day {
         hour = hour.toString().padStart(2, 0);
         minute = minute.toString().padStart(2, 0);
 
-        const toMoment = moment(`${year}-${month}-${day}T${hour}:${minute}:00`, moment.ISO_8601, true);
-        if (toMoment.isValid()) {
-            result = toMoment.format();
-            return result;
-        }
-        return null;
+        const toMoment = moment(`${year}-${month}-${day} ${hour}:${minute}`, 'YYYY-MM-DD HH:mm');
+        return toMoment.format();
     }
 
     public getFieldValue(name) {
-        if (!this.refs[`${name}`] || !this.refs[`${name}`].value) {
-            return null;
-        }
         if (this.dataValue && this.dataValue !== 'Invalid date') {
             try {
                 let val = null;
-                const date = moment(this.dataValue);
+                const date = moment(this.dataValue, 'YYYY-MM-DD HH:mm');
 
                 switch (name) {
                     case 'month':
@@ -198,8 +191,7 @@ export default class GDSDatetimeComponent extends Day {
                 return null;
             }
         }
-        return this.refs[`${name}`].value;
-
+        return null;
     }
 
     public setValueAt(index, value) {
@@ -230,6 +222,19 @@ export default class GDSDatetimeComponent extends Day {
 
     }
 
+    public getValueAt(index) {
+        // @ts-ignore
+        const date = this.date;
+        if (date) {
+            this.refs.input[index].value = date;
+            return this.refs.input[index].value;
+        }
+        else {
+            this.refs.input[index].value = '';
+            return null;
+        }
+    }
+
     public normalizeValue(value) {
         return value;
     }
@@ -237,23 +242,23 @@ export default class GDSDatetimeComponent extends Day {
     public validateRequired(setting, value) {
         const {day, month, year, minute, hour} = this.parts;
 
-        if (this.component.validate.required && !day) {
+        if (this.component.validate.required && (!day || parseInt(day, 10) === 0)) {
             return false;
         }
 
-        if (this.component.validate.required && !month) {
+        if (this.component.validate.required && (!month || parseInt(month, 10) === 0)) {
             return false;
         }
 
-        if (this.component.validate.required && !year) {
+        if (this.component.validate.required && (!year || parseInt(year, 10) === 0)) {
             return false;
         }
 
-        if (this.component.validate.required && !hour) {
+        if (this.component.validate.required && (!minute || parseInt(minute, 10) === 0)) {
             return false;
         }
 
-        if (this.component.validate.required && !minute) {
+        if (this.component.validate.required && (!hour || parseInt(hour, 10) === 0)) {
             return false;
         }
 

@@ -1,5 +1,6 @@
 declare const Day: import("formiojs").ClassWithEditForm<typeof import("formiojs/types/components/_classes/field/field").Field>;
 export default class GDSDatetimeComponent extends Day {
+    get format(): string;
     get defaultValue(): any;
     get emptyValue(): any;
     get parts(): {
@@ -22,9 +23,11 @@ export default class GDSDatetimeComponent extends Day {
     addInputError(message: any, dirty: any, elements: any): void;
     removeInputError(elements: any): void;
     render(): any;
-    getDate(value: any): any;
+    getDate(value: any): string;
     getFieldValue(name: any): any;
-    setValueAt(index: any, value: any): any;
+    setValueAt(index: any, value: any): void;
+    getValueAt(index: any): any;
+    normalizeValue(value: any): any;
     validateRequired(setting: any, value: any): boolean;
     private processField;
     private preventNonNumericKeyPress;
