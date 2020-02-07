@@ -1,4 +1,9 @@
 # Change Log
+##1.2.7
+- Bug fix GDS date time component max and min date validation
+- Bug fix GDS date time component on wizard next page validation
+- Added default date format DD-MM-YYYY for custom date validation
+
 ##1.2.6
 - Bug fix GDS date time component
 
