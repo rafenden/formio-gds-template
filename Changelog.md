@@ -1,4 +1,7 @@
 # Change Log
+##1.2.8
+- Removed boolValue from formio utils
+
 ##1.2.7
 - Bug fix GDS date time component max and min date validation
 - Bug fix GDS date time component on wizard next page validation

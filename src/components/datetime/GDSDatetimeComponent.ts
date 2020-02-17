@@ -1,8 +1,7 @@
-import {Components, Utils} from 'formiojs';
+import {Components} from 'formiojs';
 import FormioUtils from 'formiojs/utils';
 import * as _ from 'lodash';
 import * as moment from 'moment';
-import boolValue = Utils.boolValue;
 import TimeHelper from '../util/TimeHelper';
 
 const Field = Components.components.field;
@@ -194,6 +193,17 @@ export default class GDSDatetimeComponent extends Day {
         return null;
     }
 
+    public boolValue(value) {
+        if (_.isBoolean(value)) {
+            return value;
+        }
+        else if (_.isString(value)) {
+            return (value.toLowerCase() === 'true');
+        }
+        else {
+            return !!value;
+        }
+    }
     public setValueAt(index, value) {
         // temporary solution to avoid input reset
         // on invalid date.
@@ -262,7 +272,7 @@ export default class GDSDatetimeComponent extends Day {
             return false;
         }
 
-        if (!boolValue(setting)) {
+        if (!this.boolValue(setting)) {
             return true;
         }
         return !this.isEmpty(value);

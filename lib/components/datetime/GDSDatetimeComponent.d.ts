@@ -25,6 +25,7 @@ export default class GDSDatetimeComponent extends Day {
     render(): any;
     getDate(value: any): string;
     getFieldValue(name: any): any;
+    boolValue(value: any): boolean;
     setValueAt(index: any, value: any): void;
     getValueAt(index: any): any;
     normalizeValue(value: any): any;
