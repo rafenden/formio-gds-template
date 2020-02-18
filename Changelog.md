@@ -1,4 +1,7 @@
 # Change Log
+##1.2.9
+- Date time using govuk-grid-column-full 
+
 ##1.2.8
 - Removed boolValue from formio utils
 
