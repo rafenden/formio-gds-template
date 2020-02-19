@@ -1,4 +1,7 @@
 # Change Log
+##1.3.1
+- Bug fix GDS date time component hour and minute input not disabled when disabled set
+
 ##1.3.0
 - Date time using govuk-grid-column-three-quarters
 

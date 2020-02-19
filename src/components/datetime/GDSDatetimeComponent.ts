@@ -75,6 +75,12 @@ export default class GDSDatetimeComponent extends Day {
         this.addEventListener(this.refs.minute, 'keypress', (evt) => {
             this.preventNonNumericKeyPress(evt);
         });
+
+        if (this.shouldDisabled) {
+            this.setDisabled(this.refs.hour, true);
+            this.setDisabled(this.refs.minute, true);
+        }
+
         return super.attach(element);
     }
 
