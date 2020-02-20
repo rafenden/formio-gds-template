@@ -1,4 +1,7 @@
 # Change Log
+##1.3.2
+- Data grid 'Add another' moved from primary action button to secondary
+
 ##1.3.1
 - Bug fix GDS date time component hour and minute input not disabled when disabled set
 
