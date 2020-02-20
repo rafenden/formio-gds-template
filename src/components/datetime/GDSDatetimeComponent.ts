@@ -270,11 +270,11 @@ export default class GDSDatetimeComponent extends Day {
             return false;
         }
 
-        if (this.component.validate.required && (!minute || parseInt(minute, 10) === 0)) {
+        if (this.component.validate.required && (this.refs.minute.value === '' || !minute)) {
             return false;
         }
 
-        if (this.component.validate.required && (!hour || parseInt(hour, 10) === 0)) {
+        if (this.component.validate.required && (this.refs.hour.value === '' || !hour)) {
             return false;
         }
 

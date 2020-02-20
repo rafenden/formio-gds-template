@@ -1,4 +1,7 @@
 # Change Log
+##1.3.3
+- Bugfix Datetime when set to required not allowing 00 for min and hour to be valid
+
 ##1.3.2
 - Data grid 'Add another' moved from primary action button to secondary
 
