@@ -11,18 +11,22 @@
     <div class="govuk-grid-row" ref="{{ctx.datagridKey}}-row" data-label="{{ ctx.t(col.label || col.title) }}">
         <div class="govuk-grid-column-full" ref="{{ctx.datagridKey}}" data-label="{{ ctx.t(col.label || col.title) }}">
             {{row[col.key]}}
-            {% if (ctx.component.reorder) { %}
-            <button type="button" title="Reorder item"
-                    class="formio-drag-button govuk-button govuk-button--secondary">
-                {{ctx.t(ctx.component.properties['reorderItemLabel'] || 'Reorder')}}
-            </button>
-            {% } %}
-            {% if (!ctx.builder && ctx.hasRemoveButtons) { %}
-            <button aria-label="Remove item" title="Remove item" type="button"
-                    class="govuk-button govuk-button--warning" ref="{{ctx.datagridKey}}-removeRow">
-                {{ctx.t(ctx.component.properties['removeItemLabel'] || 'Remove')}}
-            </button>
-            {% } %}
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+                    {% if (ctx.component.reorder) { %}
+                    <button type="button" title="Reorder item"
+                            class="formio-drag-button govuk-button govuk-button--secondary">
+                        {{ctx.t(ctx.component.properties['reorderItemLabel'] || 'Reorder')}}
+                    </button>
+                    {% } %}
+                    {% if (!ctx.builder && ctx.hasRemoveButtons) { %}
+                    <button aria-label="Remove item" title="Remove item" type="button"
+                            class="govuk-button govuk-button--warning" ref="{{ctx.datagridKey}}-removeRow">
+                        {{ctx.t(ctx.component.properties['removeItemLabel'] || 'Remove')}}
+                    </button>
+                    {% } %}
+                </div>
+            </div>
             <hr class="dataGrid-hr"/>
         </div>
     </div>

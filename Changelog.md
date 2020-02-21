@@ -1,4 +1,7 @@
 # Change Log
+##1.4.3
+- Datagrid remove button update
+
 ##1.4.1
 - Tabs panel hidden on mobile view
 
