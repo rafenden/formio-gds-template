@@ -1,6 +1,6 @@
 {
   "name": "@digitalpatterns/formio-gds-template",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Gov UK design system formio templates",
   "publishConfig": {
     "access": "public"

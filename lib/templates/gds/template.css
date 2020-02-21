@@ -73,3 +73,7 @@
 
 .gov-accordion-no-bottom {
   border-bottom: none !important; }
+
+@media (min-width: 20em) {
+  .js-enabled .govuk-tabs__panel--hidden {
+    display: none; } }

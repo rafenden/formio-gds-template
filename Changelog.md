@@ -1,4 +1,7 @@
 # Change Log
+##1.4.1
+- Tabs panel hidden on mobile view
+
 ##1.4.0
 - Datagrid change from table to grid system
   The following properties can be added to custom properties in the data grid component to change button label for remove and reorder:
