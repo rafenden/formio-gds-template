@@ -1,4 +1,11 @@
 # Change Log
+##1.4.0
+- Datagrid change from table to grid system
+  The following properties can be added to custom properties in the data grid component to change button label for remove and reorder:
+  - removeItemLabel - defaults to 'Remove'
+  - reorderItemLabel - defaults to 'Reorder'
+- Removed accordion bottom border on panels
+
 ##1.3.3
 - Bugfix Datetime when set to required not allowing 00 for min and hour to be valid
 

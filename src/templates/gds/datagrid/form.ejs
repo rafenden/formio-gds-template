@@ -1,91 +1,39 @@
-<table class="govuk-table res-datagrid {{ctx.component.customClass}}" {% if (ctx.component.layoutFixed) { %}style="table-layout: fixed;" {% } %}>
-    {% if (ctx.hasHeader) { %}
-    <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-        {% if (ctx.component.reorder) { %}
-        <th class="govuk-table__header" id="reorder"></th>
-        {% } %}
-        {% ctx.columns.forEach(function(col) { %}
-        <th class="govuk-table__header {{col.validate && col.validate.required ? 'field-required' : ''}}">
-            {{ col.hideLabel ? '' : ctx.t(col.label || col.title) }}
-            {% if (col.tooltip) { %}
-            <details class="govuk-details" style="margin-top: 5px">
-                <summary class="govuk-details__summary">
-                        <span class="govuk-details__summary-text">
-                          {{col.tooltipTitle || 'Help'}}
-                        </span>
-                </summary>
-                <div class="govuk-details__text">
-                    {{col.tooltip}}
-                </div>
-            </details>
-            {% } %}
-        </th>
-        {% }) %}
-        {% if (ctx.hasExtraColumn) { %}
-        <th class="govuk-table__header">
-            {% if (ctx.hasAddButton && ctx.hasTopSubmit) { %}
-            <button class="govuk-button govuk-button--secondary" ref="{{ctx.datagridKey}}-addRow">
-                {{ctx.t('Add Another')}}
-            </button>
-            {% } %}
-        </th>
-        {% } %}
-    </tr>
-    </thead>
+<div class="{{ctx.component.customClass}}" ref="{{ctx.datagridKey}}-tbody">
+    {% if (ctx.hasAddButton && ctx.hasTopSubmit) { %}
+    <button class="govuk-button govuk-button--secondary"
+            aria-label="{{ctx.t(ctx.component.addAnother || 'Add Another')}}"
+            ref="{{ctx.datagridKey}}-addRow">
+        <i class="{{ctx.iconClass('plus')}}"></i> {{ctx.t(ctx.component.addAnother || 'Add Another')}}
+    </button>
     {% } %}
-    <tbody class="govuk-table__body" ref="{{ctx.datagridKey}}-tbody">
     {% ctx.rows.forEach(function(row, index) { %}
-    {% if (ctx.hasGroups && ctx.groups[index]) { %}
-    <tr ref="{{ctx.datagridKey}}-group-header" class="govuk-table__row">
-        <td ref="{{ctx.datagridKey}}-group-label"
-            colspan="{{ctx.numColumns}}"
-            class="govuk-table__header datagrid-group-label">{{ctx.groups[index].label}}
-        </td>
-    </tr>
-    {% } %}
-    <tr ref="{{ctx.datagridKey}}-row" class="govuk-table__row">
-        {% if (ctx.component.reorder) { %}
-        <td class="govuk-table__cell" id="reorder">
-            <button type="button" style="position: absolute;margin-top: 15px;" title="Reorder item"
-                    class="formio-drag-button govuk-button govuk-button--secondary"><i class="fa fa-bars"></i>
-            </button>
-        </td>
-        {% } %}
-        {% ctx.columns.forEach(function(col) { %}
-        <td ref="{{ctx.datagridKey}}" data-label="{{ ctx.t(col.label || col.title) }}" class="govuk-table__cell">
+    {% ctx.columns.forEach(function(col) { %}
+    <div class="govuk-grid-row" ref="{{ctx.datagridKey}}-row" data-label="{{ ctx.t(col.label || col.title) }}">
+        <div class="govuk-grid-column-full" ref="{{ctx.datagridKey}}" data-label="{{ ctx.t(col.label || col.title) }}">
             {{row[col.key]}}
-        </td>
-        {% }) %}
-        {% if (ctx.hasExtraColumn) { %}
-        {% if (!ctx.builder && ctx.hasRemoveButtons) { %}
-        <td class="govuk-table__cell">
+            {% if (ctx.component.reorder) { %}
+            <button type="button" title="Reorder item"
+                    class="formio-drag-button govuk-button govuk-button--secondary">
+                {{ctx.t(ctx.component.properties['reorderItemLabel'] || 'Reorder')}}
+            </button>
+            {% } %}
+            {% if (!ctx.builder && ctx.hasRemoveButtons) { %}
             <button aria-label="Remove item" title="Remove item" type="button"
-                    class="govuk-button govuk-button--warning" ref="{{ctx.datagridKey}}-removeRow"
-                    style="float: right;margin-top: 15px;">
-                <i class="{{ctx.iconClass('remove')}}"></i>
+                    class="govuk-button govuk-button--warning" ref="{{ctx.datagridKey}}-removeRow">
+                {{ctx.t(ctx.component.properties['removeItemLabel'] || 'Remove')}}
             </button>
-        </td>
-        {% } %}
-        {% if (ctx.canAddColumn) { %}
-        <td ref="{{ctx.key}}-container">
-            {{ctx.placeholder}}
-        </td>
-        {% } %}
-        {% } %}
-    </tr>
+            {% } %}
+            <hr class="dataGrid-hr"/>
+        </div>
+    </div>
     {% }) %}
-    </tbody>
+    {% }) %}
     {% if (ctx.hasAddButton && ctx.hasBottomSubmit) { %}
-    <tfoot>
-    <tr>
-        <td colspan="{{ctx.numColumns + 1}}">
-            <button class="govuk-button govuk-button--secondary" aria-label="{{ctx.t(ctx.component.addAnother || 'Add Another')}}"
-                    ref="{{ctx.datagridKey}}-addRow">
-                <i class="{{ctx.iconClass('plus')}}"></i> {{ctx.t(ctx.component.addAnother || 'Add Another')}}
-            </button>
-        </td>
-    </tr>
-    </tfoot>
+    <button class="govuk-button govuk-button--secondary"
+            aria-label="{{ctx.t(ctx.component.addAnother || 'Add Another')}}"
+            ref="{{ctx.datagridKey}}-addRow">
+        <i class="{{ctx.iconClass('plus')}}"></i> {{ctx.t(ctx.component.addAnother || 'Add Another')}}
+    </button>
     {% } %}
-</table>
+</div>
+
