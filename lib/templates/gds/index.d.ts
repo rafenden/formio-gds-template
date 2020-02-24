@@ -41,6 +41,9 @@ declare const _default: {
     datagrid: {
         form: string;
     };
+    datamap: {
+        form: string;
+    };
     input: {
         form: string;
     };

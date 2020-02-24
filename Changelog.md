@@ -1,4 +1,7 @@
 # Change Log
+##1.4.4
+- Bugfix DataMap template fix
+
 ##1.4.3
 - Datagrid remove button update
 

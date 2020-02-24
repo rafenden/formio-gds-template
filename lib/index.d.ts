@@ -42,6 +42,9 @@ declare const _default: {
             datagrid: {
                 form: string;
             };
+            datamap: {
+                form: string;
+            };
             input: {
                 form: string;
             };
@@ -102,6 +105,7 @@ declare const _default: {
         };
     };
     components: {
+        datamap: typeof import("./components/datamap/GDSDataMap").default;
         datetime: typeof import("./components/datetime/GDSDatetimeComponent").default;
         selectboxes: typeof import("./components/selectboxes/GDSCheckBoxes").default;
         time: typeof import("./components/time/GDSTimeComponent").default;
