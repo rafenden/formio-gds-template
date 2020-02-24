@@ -6,6 +6,7 @@ import component from './component';
 import container from './container';
 import cssClasses from './cssClasses';
 import datagrid from './datagrid';
+import datamap from './datamap';
 import datetime from './datetime';
 import day from './day';
 import editgrid from './editgrid';
@@ -54,6 +55,7 @@ export default {
     datetime,
     day,
     datagrid,
+    datamap,
     input,
     editgrid,
     field,
