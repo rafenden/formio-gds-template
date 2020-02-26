@@ -1,5 +1,6 @@
 # Change Log
 ##1.4.5
+
 - Data grid layout fix
 
 ##1.4.4
