@@ -1,6 +1,8 @@
 # Change Log
-## 1.4.5
+## 1.4.6
+- Data grid remove button position
 
+## 1.4.5
 - Data grid layout fix
 
 ## 1.4.4
