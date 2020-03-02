@@ -30,40 +30,41 @@ columnWidth = 'govuk-grid-column-full';
     </button>
     {% } %}
     {% ctx.rows.forEach(function(row, index) { %}
-    <div ref="{{ctx.datagridKey}}-row">
-        <div class="govuk-grid-row">
-            {% ctx.columns.forEach(function(col) { %}
-            <div class="{{columnWidth}}" ref="{{ctx.datagridKey}}" data-label="{{ ctx.t(col.label || col.title) }}">
-                {% if (!ctx.component.hideLabel) { %}
-                {{ col.hideLabel ? '' : ctx.t(col.label || col.title) }}
-                {% } %}
-                {{row[col.key]}}
-                <div class="govuk-grid-row">
-                    <div class="govuk-grid-column-full">
-                        {% if (ctx.component.reorder) { %}
-                        <button
-                                aria-label="{{ctx.t(ctx.component.properties['reorderItemLabel'] || 'Reorder item')}}"
-                                type="button"
-                                title="{{ctx.t(ctx.component.properties['reorderItemLabel'] || 'Reorder item')}}"
-                                class="formio-drag-button govuk-button govuk-button--secondary">
-                            {{ctx.t(ctx.component.properties['reorderItemLabel'] || 'Reorder')}}
-                        </button>
-                        {% } %}
-                        {% if (!ctx.builder && ctx.hasRemoveButtons) { %}
-                        <button aria-label="{{ctx.t(ctx.component.properties['removeItemLabel'] || 'Remove item')}}"
-                                title="{{ctx.t(ctx.component.properties['removeItemLabel'] || 'Remove item')}}"
-                                type="button"
-                                class="govuk-button govuk-button--warning" ref="{{ctx.datagridKey}}-removeRow">
-                            {{ctx.t(ctx.component.properties['removeItemLabel'] || 'Remove')}}
-                        </button>
-                        {% } %}
-                    </div>
+    <div ref="{{ctx.datagridKey}}-row" class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            <div class="govuk-grid-row">
+                {% ctx.columns.forEach(function(col) { %}
+                <div class="{{columnWidth}}" ref="{{ctx.datagridKey}}" data-label="{{ ctx.t(col.label || col.title) }}">
+                    {% if (!ctx.component.hideLabel) { %}
+                    {{ col.hideLabel ? '' : ctx.t(col.label || col.title) }}
+                    {% } %}
+                    {{row[col.key]}}
+                </div>
+                {% }) %}
+            </div>
+            <div class="govuk-grid-row govuk-!-margin-top-3">
+                <div class="govuk-grid-column-full">
+                    {% if (ctx.component.reorder) { %}
+                    <button
+                            aria-label="{{ctx.t(ctx.component.properties['reorderItemLabel'] || 'Reorder item')}}"
+                            type="button"
+                            title="{{ctx.t(ctx.component.properties['reorderItemLabel'] || 'Reorder item')}}"
+                            class="formio-drag-button govuk-button govuk-button--secondary">
+                        {{ctx.t(ctx.component.properties['reorderItemLabel'] || 'Reorder')}}
+                    </button>
+                    {% } %}
+                    {% if (!ctx.builder && ctx.hasRemoveButtons) { %}
+                    <button aria-label="{{ctx.t(ctx.component.properties['removeItemLabel'] || 'Remove item')}}"
+                            title="{{ctx.t(ctx.component.properties['removeItemLabel'] || 'Remove item')}}"
+                            type="button"
+                            class="govuk-button govuk-button--warning" ref="{{ctx.datagridKey}}-removeRow">
+                        {{ctx.t(ctx.component.properties['removeItemLabel'] || 'Remove')}}
+                    </button>
+                    {% } %}
                 </div>
             </div>
-            {% }) %}
+            <hr class="dataGrid-hr"/>
         </div>
-
-        <hr class="dataGrid-hr"/>
     </div>
     {% }) %}
     {% if (ctx.hasAddButton && ctx.hasBottomSubmit) { %}

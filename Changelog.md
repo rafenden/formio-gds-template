@@ -1,4 +1,7 @@
 # Change Log
+## 1.4.7
+- Data grid remove button position multi column components
+
 ## 1.4.6
 - Data grid remove button position
 
