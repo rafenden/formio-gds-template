@@ -20,7 +20,7 @@ export default class GDSDatetimeComponent extends Day {
     private timeHelper;
     attach(element: any): any;
     init(): void;
-    addInputError(message: any, dirty: any, elements: any): void;
+    setErrorClasses(elements: any, dirty: any, hasError: any): void;
     removeInputError(elements: any): void;
     render(): any;
     getDate(value: any): string;

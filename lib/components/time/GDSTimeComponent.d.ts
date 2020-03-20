@@ -8,6 +8,7 @@ export default class GDSTimeComponent extends Time {
     private updateValue;
     private timeHelper;
     attach(element: any): any;
+    setErrorClasses(elements: any, dirty: any, hasError: any): void;
     addInputError(message: any, dirty: boolean, element: any): void;
     removeInputError(elements: any): void;
     getValue(): string;

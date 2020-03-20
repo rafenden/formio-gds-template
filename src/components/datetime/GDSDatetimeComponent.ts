@@ -105,10 +105,9 @@ export default class GDSDatetimeComponent extends Day {
         };
     }
 
-    // @ts-ignore
-    public addInputError(message, dirty, elements) {
+    public setErrorClasses(elements, dirty, hasError) {
         // @ts-ignore
-        super.addInputError(message, dirty, [this.refs.hour, this.refs.minute, ...elements]);
+        super.setErrorClasses( [this.refs.hour, this.refs.minute, ...elements], dirty, hasError);
     }
 
     public removeInputError(elements) {

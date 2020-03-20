@@ -47,6 +47,11 @@ export default class GDSTimeComponent extends Time {
         return super.attach(element);
     }
 
+    public setErrorClasses(elements, dirty, hasError) {
+        // @ts-ignore
+        super.setErrorClasses( [this.refs.hour, this.refs.minute, ...elements], dirty, hasError);
+    }
+
     // @ts-ignore
     public addInputError(message: any, dirty: boolean, element: any): void {
         // @ts-ignore
