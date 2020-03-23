@@ -1,4 +1,7 @@
 # Change Log
+## 1.4.9
+- Formio js upgrade to 4.9.5
+
 ## 1.4.8
 - Formio js upgrade to 4.9.0
 
