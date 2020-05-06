@@ -1,4 +1,32 @@
 # Change Log
+## 1.5.0
+- Fixed DateTime component inputs restricting to 2 for day and month and 4 for year
+- Removed ctx.render in form.ejs to stop warning messages
+- Formio js upgrade to 4.9.26
+- govuk-frontend upgrade to 3.6.0
+- Dev dependency upgrades
+  - @types/chai
+  - @types/ejs
+  - @types/mocha
+  - @types/node
+  - @types/sinon
+  - concurrently
+  - css-loader
+  - gulp-rename
+  - mocha
+  - moment
+  - node-sass
+  - sass-loader
+  - sinon
+  - style-loader
+  - ts-node
+  - ts-sinon
+  - tslint
+  - typed-scss-modules
+  - typescript
+  - webpack
+  - webpack-cli
+
 ## 1.4.9
 - Formio js upgrade to 4.9.5
 

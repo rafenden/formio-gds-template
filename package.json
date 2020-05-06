@@ -1,6 +1,6 @@
 {
   "name": "@digitalpatterns/formio-gds-template",
-  "version": "1.4.9",
+  "version": "1.5.0",
   "description": "Gov UK design system formio templates",
   "publishConfig": {
     "access": "public"
@@ -40,43 +40,43 @@
   },
   "homepage": "https://github.com/DigitalPatterns/formio-gds-template#readme",
   "peerDependencies": {
-    "formiojs": "^4.7.8"
+    "formiojs": "^4.9.26"
   },
   "dependencies": {
-    "govuk-frontend": "^3.3.0",
+    "govuk-frontend": "^3.6.0",
     "lodash": "^4.17.15"
   },
   "devDependencies": {
-    "@types/chai": "^4.2.3",
-    "@types/ejs": "^2.6.3",
-    "@types/lodash": "^4.14.149",
-    "@types/mocha": "^5.2.7",
+    "@types/chai": "^4.2.11",
+    "@types/ejs": "^3.0.3",
+    "@types/lodash": "^4.14.150",
+    "@types/mocha": "^7.0.2",
     "@types/moment": "^2.13.0",
-    "@types/node": "^12.11.2",
+    "@types/node": "^13.13.5",
     "@types/node-sass": "^4.11.0",
-    "@types/sinon": "^7.5.0",
+    "@types/sinon": "^9.0.0",
     "chai": "^4.2.0",
-    "concurrently": "^5.0.0",
-    "css-loader": "^3.2.0",
-    "formiojs": "^4.9.5",
+    "concurrently": "^5.2.0",
+    "css-loader": "^3.5.3",
+    "formiojs": "^4.9.26",
     "gulp": "^4.0.2",
     "gulp-insert": "^0.5.0",
-    "gulp-rename": "^1.4.0",
+    "gulp-rename": "^2.0.0",
     "gulp-template": "^5.0.0",
-    "mocha": "^6.2.2",
-    "moment": "^2.24.0",
-    "node-sass": "^4.13.1",
-    "nyc": "^14.1.1",
+    "mocha": "^7.1.2",
+    "moment": "^2.25.3",
+    "node-sass": "^4.14.1",
+    "nyc": "^15.0.1",
     "pre-commit": "^1.2.2",
-    "sass-loader": "^8.0.0",
-    "sinon": "^7.5.0",
-    "style-loader": "^1.0.0",
-    "ts-node": "^8.4.1",
-    "ts-sinon": "^1.0.24",
-    "tslint": "^5.20.0",
-    "typed-scss-modules": "0.0.12",
-    "typescript": "^3.7.3",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "sass-loader": "^8.0.2",
+    "sinon": "^9.0.2",
+    "style-loader": "^1.2.1",
+    "ts-node": "^8.10.1",
+    "ts-sinon": "^1.2.0",
+    "tslint": "^6.1.2",
+    "typed-scss-modules": "^1.3.0",
+    "typescript": "^3.8.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   }
 }

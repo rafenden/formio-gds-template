@@ -8,7 +8,7 @@ declare const _default: {
             'formio-tab-link-container-active': string;
             'is-invalid': string;
             'formio-error-wrapper': string;
-            'row': string;
+            row: string;
             'form-control ui fluid selection dropdown': string;
             'formio-day-component-month': string;
             'formio-day-component-day': string;

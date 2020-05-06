@@ -69,19 +69,32 @@ export default class GDSDatetimeComponent extends Day {
             this.triggerChange();
         });
 
-        this.addEventListener(this.refs.hour, 'keypress', (evt) => {
-            this.preventNonNumericKeyPress(evt);
-        });
-        this.addEventListener(this.refs.minute, 'keypress', (evt) => {
-            this.preventNonNumericKeyPress(evt);
-        });
+        this.addEventListener(this.refs.hour, 'keypress', this.timeHelper.preventNonNumericKeyPress);
+        this.addEventListener(this.refs.minute, 'keypress', this.timeHelper.preventNonNumericKeyPress);
 
         if (this.shouldDisabled) {
             this.setDisabled(this.refs.hour, true);
             this.setDisabled(this.refs.minute, true);
         }
 
-        return super.attach(element);
+        const superAttach = super.attach(element);
+
+        this.addEventListener(this.refs.year, 'keypress', this.timeHelper.preventNonNumericKeyPress);
+        this.addEventListener(this.refs.month, 'keypress', this.timeHelper.preventNonNumericKeyPress);
+        this.addEventListener(this.refs.day, 'keypress', this.timeHelper.preventNonNumericKeyPress);
+
+        this.addEventListener(this.refs.year, 'input', () => {
+            this.timeHelper.validateDateInput(this.refs.year, 4);
+        });
+        this.addEventListener(this.refs.day, 'input', () => {
+            this.timeHelper.validateDateInput(this.refs.day, 2);
+        });
+        this.addEventListener(this.refs.month, 'input', () => {
+            this.timeHelper.validateDateInput(this.refs.month, 2);
+        });
+
+
+        return superAttach;
     }
 
     public init() {
@@ -292,9 +305,4 @@ export default class GDSDatetimeComponent extends Day {
 
     }
 
-    private preventNonNumericKeyPress(evt: any) {
-        if (evt.which !== 8 && evt.which !== 0 && evt.which < 48 || evt.which > 57) {
-            evt.preventDefault();
-        }
-    }
 }

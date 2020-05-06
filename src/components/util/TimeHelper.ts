@@ -40,4 +40,9 @@ export default class TimeHelper {
         }
     }
 
+    validateDateInput(element: any, length: number) {
+        if (element.value && element.value.length > length) {
+            element.value = element.value.slice(0, length);
+        }
+    }
 }

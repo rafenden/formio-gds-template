@@ -31,6 +31,5 @@ export default class GDSDatetimeComponent extends Day {
     normalizeValue(value: any): any;
     validateRequired(setting: any, value: any): boolean;
     private processField;
-    private preventNonNumericKeyPress;
 }
 export {};
