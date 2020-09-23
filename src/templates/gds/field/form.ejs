@@ -1,4 +1,4 @@
-{% if (!ctx.label.hidden && ctx.label.labelPosition !== 'bottom') { %}
+{% if (ctx.label.labelPosition !== 'bottom') { %}
 {{ ctx.labelMarkup }}
 {% } %}
 {% if (ctx.component.description) { %}
@@ -18,6 +18,6 @@
     </div>
 </details>
 {% } %}
-{% if (!ctx.label.hidden && ctx.label.labelPosition === 'bottom') { %}
+{% if (ctx.label.labelPosition === 'bottom') { %}
 {{ ctx.labelMarkup }}
 {% } %}
