@@ -1,4 +1,7 @@
 # Change Log
+## 1.6.0
+- Merge https://github.com/DigitalPatterns/formio-gds-template/pull/15
+
 ## 1.5.0
 - Fixed DateTime component inputs restricting to 2 for day and month and 4 for year
 - Removed ctx.render in form.ejs to stop warning messages
