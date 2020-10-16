@@ -77,3 +77,21 @@
 @media (min-width: 20em) {
   .js-enabled .govuk-tabs__panel--hidden {
     display: none; } }
+
+@media (max-width: 768px) {
+  .custom-table {
+    display: block;
+    overflow-y: scroll;
+    max-height: 400px;
+    overflow-x: auto;
+    white-space: nowrap; } }
+
+.custom-th {
+  position: sticky;
+  top: 0;
+  background: #ffffff; }
+
+.custom-body {
+  height: 100px;
+  overflow-y: auto;
+  overflow-x: hidden; }

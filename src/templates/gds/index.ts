@@ -11,6 +11,7 @@ import datetime from './datetime';
 import day from './day';
 import editgrid from './editgrid';
 import field from './field';
+import file from './file';
 import fieldset from './fieldset';
 import iconClass from './iconClass';
 import input from './input';
@@ -59,6 +60,7 @@ export default {
     input,
     editgrid,
     field,
+    file,
     fieldset,
     label,
     message,

@@ -1,4 +1,6 @@
 # Change Log
+## 1.6.1
+- Fix file list when using a file component
 ## 1.6.0
 - Merge https://github.com/DigitalPatterns/formio-gds-template/pull/15
 

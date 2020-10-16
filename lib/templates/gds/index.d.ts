@@ -53,6 +53,9 @@ declare const _default: {
     field: {
         form: string;
     };
+    file: {
+        form: string;
+    };
     fieldset: {
         form: string;
     };

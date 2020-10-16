@@ -114,3 +114,25 @@
     }
   }
 }
+
+.custom-table {
+  @media (max-width: 768px) {
+    display: block;
+    overflow-y: scroll;
+    max-height: 400px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+.custom-th {
+  position: sticky;
+  top: 0;
+  background: govuk-colour('white');
+}
+
+.custom-body {
+  height: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
